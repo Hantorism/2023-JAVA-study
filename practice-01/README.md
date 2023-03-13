@@ -421,13 +421,13 @@ public class Practice10 {
 
 - String 클래스의 객체 생성 방법
 
-    ```java
-    // 방법 1. 다른 클래스와 마찬가지로 new 연산자를 통해 생성하는 방법
-    String str = new String("Hello");
-    
-    // 방법 2. 문자열 리터럴을 직접 할당하여 객체를 생성하는 방법
-    String str2 = "Hello";
-    ```
+  ```java
+  // 방법 1. 다른 클래스와 마찬가지로 new 연산자를 통해 생성하는 방법
+  String str = new String("Hello");
+  
+  // 방법 2. 문자열 리터럴을 직접 할당하여 객체를 생성하는 방법
+  String str2 = "Hello";
+  ```
 
 - 참고 !
 
