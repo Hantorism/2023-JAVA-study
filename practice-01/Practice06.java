@@ -12,7 +12,6 @@ public class Practice06 {
 
 /*
  * 출력 예시
- * 
  * 1
  * 1번을 선택하였습니다.
  */

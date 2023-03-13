@@ -18,3 +18,11 @@ public class Practice08 {
         System.out.print("두 수의 합  : " + (num1 + num2));
     }
 }
+
+/*
+첫번쨰 정수 : 3
+두번쨰 정수 : 4
+첫번쨰 정수 : 3
+두번쨰 정수 : 4
+두 수의 합   : 7
+*/
