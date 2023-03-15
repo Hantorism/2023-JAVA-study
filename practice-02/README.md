@@ -1,20 +1,13 @@
 # 2회차 문제
 
+### 이번 회차 예제 중 Practice 2,3,4,5는 코드에 살을 붙여나가는 방식이므로, 작성한 코드를 다음 문제에도 이용하시면 됩니다.
+
 ## Practice 1 : 클래스 이론 정리
 <details>
 
 **[문제]** 클래스
 
 **[설명]** 이번 예제는 이해를 돕기 위한 예제입니다. 편하게 읽어주세용.
-
-우선 객체의 정의는 다음과 같이 정리할 수 있다.
-
-1) 사전적 정의: 실제로 존재하는 것
-2) 객체지향이론에서의 정의: 실존하는 것뿐만 아니라 개념, 논리와 같은 무형적인 것
-3) **프로그래밍에서의 정의: 클래스에 정의된 내용대로 메모리에 생성된 것**
-
-이러한 객체를 생성하기 위해선, 주어진 클래스를 바탕으로 객체를 만들어야한다. 이 과정을 **인스턴스화**라고 부른다.
-즉, 객체나 인스턴스나 비슷한 의미를 갖는다. 하지만 특정 클래스로부터 만들어졋다는 의미를 더욱 강조하기 위해 인스턴스라는 표현을 사용한다.
 
 자바에 존재하는 변수들 목록은 다음과 같다.
 ```java
@@ -56,6 +49,15 @@ class Variable {
 
 여기까지의 내용은 C언어의 구조체 내용과 꽤 유사하다. 여기서 자바의 클래스는 변수뿐만 아니라 메서드(함수)또한 갖는다.
 
+우선 객체의 정의는 다음과 같이 정리할 수 있다.
+
+1) 사전적 정의: 실제로 존재하는 것
+2) 객체지향이론에서의 정의: 실존하는 것뿐만 아니라 개념, 논리와 같은 무형적인 것
+3) **프로그래밍에서의 정의: 클래스에 정의된 내용대로 메모리에 생성된 것**
+
+이러한 객체를 생성하기 위해선, 주어진 클래스를 바탕으로 객체를 만들어야한다. 이 과정을 **인스턴스화**라고 부른다.
+즉, 객체나 인스턴스나 비슷한 의미를 갖는다. 하지만 특정 클래스로부터 만들어졋다는 의미를 더욱 강조하기 위해 인스턴스라는 표현을 사용한다.
+
 ```java
 class Cat {
     String Name;  	
@@ -73,10 +75,12 @@ class Cat {
     }
 }
 ```
+
 메서드란 클래스 내의 함수로 특정 작업을 수행하는 동작의 묶음을 의미한다.
 메서드는 크게 선언부와 구현부로 구분된다. <br>
 선언부에서는 **반환타입** **메소드명** (타입 변수명 ...)의 구조를 갖는다. 타입 변수명 ...를 보통 매개변수라고 표현한다. <br>
-이를 Crying이라는 메서드에 적용하여 하나하나 분리해보자.
+
+지금까지의 내용을 Crying이라는 메서드에 적용하여 하나하나 분리해보자.
 
 - 선언부 : void Crying()
   - 반환타입 : void
@@ -177,6 +181,156 @@ class Account{
   }
   
   
+}
+```
+
+</details>
+
+## Practice 2 : 클래스 기초 예제 1
+
+<details>
+
+**[문제]** 다음과 같은 멤버 변수를 갖는 Student_02 클래스를 선언하시오.
+
+**[설명]**
+
+| 타입 | 변수명  | 설명 |
+|----|------|-------|
+| String | name | 학생의 이름 |
+| int | ban  | 반 번호 |
+| int | no   | 번호  |
+| int | kor  | 국어 성적 |
+| int | math | 수학 성적|
+| int | eng  | 영어 성적 |
+
+**[코드]**
+```java
+class Student_02{
+    // TO DO : 조건에 맞게 Student 멤버 변수 선언하기
+  
+    //
+}
+```
+
+</details>
+
+## Practice 3 : 클래스 기초 예제 2
+<details>
+
+**[문제]** 클래스에 메소드 추가하기
+
+**[설명]** 조건에 맞게 2개의 메소드를 선언해보자.
+
+| 메서드명       | 기능                         | 반환 타입  | 매개 변수 |
+|------------|----------------------------|--------|-----|
+| getTotal   | kor, eng, math의 값을 모두 더한다. | int    | 없음  |
+| getAverage | 총점을 과목 수로 나눈 평균 값을 구한다.    | double | 없음  |
+| getInfo | "반, 번호, 이름"의 형태로 객체의 변수 값을 출력한다. | void | 없음 |
+
+**[코드]**
+```java
+class Practice3 {
+    public static void main(String args[]) {
+      Student std = new Student();
+      std.name = "Hantor";
+      std.ban = 2;
+      std.no = 4;
+      std.kor = 90;
+      std.math = 100;
+      std.eng = 95;
+      
+      System.out.println("정보:"+std.getInfo());
+      System.out.println("총점:"+std.getTotal());
+      System.out.println("평균:"+std.getAverage());
+    }
+}
+
+class Student {
+    String name;
+    int ban;
+    int no;
+    int kor;
+    int eng;
+    int math;
+    
+    // TO DO : getTotal(), getAverage(), getInfo() 메서드 선언하기
+}
+```
+</details>
+
+## Practice 4 : 클래스 기초 예제 3
+<details>
+
+**[문제]** 생성자를 선언하여 Student 객체를 생성해보자.
+
+**[설명]** Practice 2,3에서는 객체 생성 시, 기본으로 존재하는 기본 생성자 `Student() { };` 를 이용하여 객체를 생성하였다.
+이제 생성자를 클래스에 직접 작성하여보자.
+
+| 메서드명    | 기능                      | 반환 타입   | 매개 변수 |
+|---------|-------------------------|---------|-----|
+| Student | Student 멤버 변수의 값을 할당한다. | 작성하지 않음 | Student의 모든 멤버 변수 |
+
+**[코드]** 
+```java
+class Practice4 {
+  public static void main(String args[]) {
+    Student std = new Student("Hantor", 1, 30, 90, 88, 100);
+
+    System.out.println("정보:"+std.getInfo());
+    System.out.println("총점:"+std.getTotal());
+    System.out.println("평균:"+std.getAverage());
+  }
+}
+class Student {
+    String name;
+    int ban;
+    int no;
+    int kor;
+    int eng;
+    int math;
+    
+    // TO DO : Student 객체 생성자 작성하기
+  
+    //
+}
+```
+</details>
+
+## Practice 5 : 클래스 기초 예제 4
+
+<details>
+
+**[문제]** 생성자의 응용
+
+**[설명]** 클래스에 새로운 멤버 변수를 추가하자. `String` 타입으로 `level`이라는 변수명을 가진 변수이다.
+그리고 앞서 만든 생성자에서 `level`에 들어가는 데이터를 설정하는데, 조건은 다음과 같다.
+
+- 평균이 90점 이상인 경우 "상"
+- 평균이 80점 이상 90점 미만인 경우 "중"
+- 평균이 80점 미만인 경우 "하"로 정한다.
+
+**[코드]**
+```java
+class Practice5{
+  public static void main(String args[]) {
+    Student std = new Student("Hantor", 1, 30, 90, 88, 100);
+    
+    System.out.println("정보:"+std.getInfo());
+    System.out.println("총점:"+std.getTotal());
+    System.out.println("평균:"+std.getAverage());
+    System.out.println("수준:"+std.level);
+  }
+}
+class Student {
+  String name;
+  int ban;
+  int no;
+  int kor;
+  int eng;
+  int math;
+  // TO DO : level 변수 추가 및 생성자 수정
+    
+  //
 }
 ```
 
