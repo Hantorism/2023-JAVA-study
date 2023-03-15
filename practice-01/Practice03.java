@@ -1,7 +1,8 @@
 public class Practice03 {
     public static void main(String[] args) {
-        // TO DO
+        // TO DO : 별 찍기
 
+        //
     }
 }
 

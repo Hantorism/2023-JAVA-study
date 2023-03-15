@@ -5,7 +5,9 @@ public class Practice06 {
         Scanner sc = new Scanner(System.in);
         int num = sc.nextInt();
 
-        // TO DO
+        // TO DO : 입력 받은 숫자를 출력
+
+        //
 
     }
 }

@@ -10,7 +10,7 @@ public class Practice07 {
 
         double gradePoint;
 
-        // TO DO
+        // TO DO : 알파벳 학점을 소수점 형태의 학점으로 변환하기
 
         System.out.println(letterGrade + " = " + gradePoint);
     }

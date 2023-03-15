@@ -4,7 +4,7 @@ public class Practice13 {
 		String [] strs = {
 				"자바는", "이게", "되네"
 		};
-		// TO DO with for-loop
+		// TO DO : with for-each
 
 		//
 	}

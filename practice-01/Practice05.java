@@ -6,8 +6,9 @@ public class Practice05 {
                 { 9, 10, 11, 12 }
         };
 
-        // TO DO
+        // TO DO : 2차원 배열을 형태에 맞춰서 출력하기
 
+        //
     }
 }
 

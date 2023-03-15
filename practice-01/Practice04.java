@@ -1,6 +1,8 @@
 public class Practice04 {
     public static void main(String[] args) {
-        // TO DO
+        // TO DO : 더해서 6이 되는 경우 출력하기
+
+        //
     }
 }
 
