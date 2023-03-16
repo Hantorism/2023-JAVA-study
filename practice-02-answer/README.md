@@ -1,6 +1,6 @@
 # 2회차 문제
 
-### 이번 회차 예제 중 Practice 2,3,4,5는 코드에 살을 붙여나가는 방식이므로, 작성한 코드를 다음 문제에도 이용하시면 됩니다.
+### 이번 회차 예제 중 Practice 2,3,4,5,6는 이전에 작성한 코드에 추가적으로 작성하는 방식이므로, 작성한 Student 클래스 코드를 다음 문제에도 이용하시면 됩니다.
 
 ## Practice 1 : 클래스 이론 정리
 <details>
@@ -144,6 +144,8 @@ class Account{
   - 생성자는 항상 메소드명 위치에 클래스의 이름을 적어주어야 한다.
   - 이 생성자는 int형 변수와 String타입 변수를 매개변수로 받는다.
 - 구현부1 : this.accountNumber = accountNumber;
+  - 클래스 내에서 `this.변수명`을 사용한다면, 객체의 멤버 변수 중 `변수명`에 해당하는 변수에 접근할 수 있다. 예를 들어
+`this.name`은 해당 클래스의 `name`이라는 멤버 변수에 접근하는 것이다.
   -  생성하려는 객체의 accountNumber이라는 멤버변수에 매개 변수로 받은 accountNumber의 값을 할당한다.
 - 구현부2 : this.name = name;
   - 위의 내용과 동일하게 매개변수로 받은 name을 객체의 변수 중 name에 할당한다.
@@ -155,33 +157,50 @@ class Account{
 ```java
 public class Practice1 {
   public static void main(String[] args) {
-    Account account = new Account(1234, "HANTOR", 100000);
-    account.showmethemoney();
+      
+    // 생성자 1을 이용하여 객체 생성
+    Account account1 = new Account(1234, "HANTOR", 100000);
+    
+    // 생성자 2를 이용하여 객체 생성하고, 각각의 멤버에 접근하여 값 할당
+    Account account2 = new Account();
+    account2.name = "JAVA";
+    account2.money = 1000;
+    account2.accountNumber = 5678;
+    
+    // 두 객체에 존재하는 메소드 호출
+    account1.showmethemoney();
+    account2.showmethemoney();
   }
 }
 
 class Account{
-  int accountNumber;
-  String name;
-  int money;
+  int accountNumber; // int형으로 선언된 멤버 변수 ( 인스턴스 변수 )
+  String name;      // String 타입으로 선언된 멤버 변수 ( 인스턴스 변수 ) 
+  int money;        // int형으로 선언된 멤버 변수 ( 인스턴스 변수 )
   
+  // 생성자 1 : 매개변수를 이용하여 객체 생성
   Account(int accountNumber, String name, int money){
     this.accountNumber = accountNumber;
     this.name = name;
     this.money = money;
   }
-
+  
+  // 생성자 2 : 매개변수를 입력하지 않고 객체 생성
   Account(){
-    this.accountNumber = 0;
+    this.accountNumber = 0; 
     this.name = null;
+    this.money = 0;
   }
   
-  void showmethemoney(){
-    System.out.println(this.money);
+  void showmethemoney() {
+    System.out.println(this.name + " : " +this.money);
   }
-  
-  
 }
+/*
+출력 결과
+HANTOR : 100000
+JAVA : 1000     
+*/
 ```
 
 </details>
@@ -190,7 +209,7 @@ class Account{
 
 <details>
 
-**[문제]** 다음과 같은 멤버 변수를 갖는 Student_02 클래스를 선언하시오.
+**[문제]** 다음과 같은 멤버 변수를 갖는 Student 클래스를 선언하시오.
 
 **[설명]**
 
@@ -205,7 +224,7 @@ class Account{
 
 **[코드]**
 ```java
-class Student_02{
+class Student{
     // TO DO : 조건에 맞게 Student 멤버 변수 선언하기
   
     //
@@ -221,18 +240,18 @@ class Student_02{
 
 **[설명]** 조건에 맞게 2개의 메소드를 선언해보자.
 
-| 메서드명       | 기능                         | 반환 타입  | 매개 변수 |
-|------------|----------------------------|--------|-----|
-| getTotal   | kor, eng, math의 값을 모두 더한다. | int    | 없음  |
-| getAverage | 총점을 과목 수로 나눈 평균 값을 구한다.    | double | 없음  |
-| getInfo | "반, 번호, 이름"의 형태로 객체의 변수 값을 출력한다. | void | 없음 |
+| 메서드명  | 기능        | 반환 타입  | 매개 변수 |
+|-------|------------|--------|-----|
+| getTotal   | kor, eng, math의 값을 모두 더한다.     | int    | 없음  |
+| getAverage | 총점을 과목 수로 나눈 평균 값을 구한다.   | double | 없음  |
+| getInfo | "반, 번호, 이름"의 형태로 객체의 정보를 반환한다. | String | 없음 |
 
 **[코드]**
 ```java
 class Practice3 {
     public static void main(String args[]) {
-      Student std = new Student();
-      std.name = "Hantor";
+      Student std = new Student(); // 기본 생성자를 통해 객체 생성하기
+      std.name = "Hantor"; // 멤버 변수에 직접 접근하여 값 할당하기
       std.ban = 2;
       std.no = 4;
       std.kor = 90;
@@ -264,21 +283,34 @@ class Student {
 **[문제]** 생성자를 선언하여 Student 객체를 생성해보자.
 
 **[설명]** Practice 2,3에서는 객체 생성 시, 기본으로 존재하는 기본 생성자 `Student() { };` 를 이용하여 객체를 생성하였다.
-이제 생성자를 클래스에 직접 작성하여보자.
+이제 생성자를 클래스에 직접 작성하고, 작성한 생성자로 객체를 생성하자.
 
 | 메서드명    | 기능                      | 반환 타입   | 매개 변수 |
 |---------|-------------------------|---------|-----|
 | Student | Student 멤버 변수의 값을 할당한다. | 작성하지 않음 | Student의 모든 멤버 변수 |
+
+**새롭게 생성할 객체의 조건**
+
+| 변수명  | name  | ban  | no | kor | eng | math |
+|------| --- | --- | --- | --- |-----| --- |
+| std2 | "본인 이름" | 2 | 4 | 100 | 90  | 95 | 
 
 **[코드]** 
 ```java
 class Practice4 {
   public static void main(String args[]) {
     Student std = new Student("Hantor", 1, 30, 90, 88, 100);
+    // TO DO : 직접 작성한 생성자로 객체를 하나 더 만들어보자 !
+    
+    //
 
     System.out.println("정보:"+std.getInfo());
     System.out.println("총점:"+std.getTotal());
     System.out.println("평균:"+std.getAverage());
+    System.out.println();
+    System.out.println("정보:"+std2.getInfo());
+    System.out.println("총점:"+std2.getTotal());
+    System.out.println("평균:"+std2.getAverage());
   }
 }
 class Student {
@@ -333,5 +365,16 @@ class Student {
   //
 }
 ```
+</details>
+
+## Practice 6 : 클래스 기초 예제 5
+<details>
+
+**[문제]** 언제까지 System.out.println 쓸꺼야?
+
+**[설명]** Practice 6 의 출력을 간단히 하고자 한다.
+Student 클래스에 getSummary()라는 메소드를 선언하여, 각각의 객체에서 메소드를 호출하여 출력을 진행해보자.
+
+**[코드]** 
 
 </details>
