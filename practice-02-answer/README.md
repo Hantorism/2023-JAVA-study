@@ -3,24 +3,74 @@
 ### 이번 회차 예제 중 Practice 2,3,4,5,6는 이전에 작성한 코드에 추가적으로 작성하는 방식이므로, 작성한 Student 클래스 코드를 다음 문제에도 이용하시면 됩니다.
 
 ## Practice 0 : 접근 제어자
+<details>
+
+### 접근제어자
+자바에는 접근 제어자가 4개 존재한다.
+
+변수나 메서드의 사용 권한은 다음과 같은 접근 제어자를 사용하여 설정할수 있다.
+
+1. private
+2. default
+3. protected
+4. public
+
+접근 제어자는 private -> default -> protected -> public 순으로 보다 많은 접근을 허용한다. 하나씩 순서대로 살펴보자.
+
+>### private : 해당 클래스에서만 접근 가능
+>접근제어자가 private으로 설정되었다면 private 이 붙은 변수, 메서드는 해당 클래스에서만 접근이 가능하다.
+>### default : 같은 패키지에서만 접근 가능
+>접근 제어자를 별도로 설정하지 않는다면 접근 제어자가 없는 변수, 메서드는 default 접근 제어자가 되어 해당 패키지 내에서만 접근이 가능하다.
+>### protected : 같은 패키지 또는 해당 클래스를 상속 받은 클래스
+>접근제어자가 protected로 설정되었다면 protected가 붙은 변수, 메서드는 동일 패키지의 클래스 또는 해당 클래스를 상속받은 다른 패키지의 클래스에서만 접근이 가능하다.
+>### public : 어디에서나 접근 가능
+>접근제어자가 public으로 설정되었다면 public 접근제어자가 붙은 변수, 메서드는 어떤 클래스에서라도 접근이 가능하다.
+>
+>[출처] : https://wikidocs.net/232 (점프 투 자바)
+
+그렇다면 간단하게 접근 제어자에 대한 코드를 보고 넘어가도록 하자. 자세한 내용은 다음 회차에서 다룰 예정이다.
+
+**[코드]**
+```java
+public class public_class {
+    //[접근제어자] [자료형] [변수명]
+	private int private_var; // private 접근제어자  
+	int default_var;        // default 접근제어자
+	protected int protected_var; // protected 접근제어자
+	public int public_var;  // public 접근제어자
+}
+class default_class{
+    //...    
+}
+
+private class private_class{
+    //...
+}
+```
+
+**이번 예제에서는 default( 작성하지 않는 경우 기본 값) 접근 제어자로 코드를 작성할 예정이다.**
 
 
-## Practice 1 : 클래스 이론 정리
+</details>
+<br>
+
+
+## Practice 0.5 : 클래스 이론 정리
 <details>
 
 **[문제]** 클래스
 
-**[설명]** 이번 예제는 이해를 돕기 위한 예제입니다. 편하게 읽어주세용.
+**[설명]** 이번 예제도 이해를 돕기 위한 예제입니다. 편하게 읽어주세용.
 
 자바에 존재하는 변수들 목록은 다음과 같다.
 ```java
 class Variable {
-    int instanceV;                 // 멤버 변수 중 인스턴스 변수  
-    static int StaticV;            // 멤버 변수 중 클래스 변수
+    int instanceV;                 // default 접근제어자, 멤버 변수 중 인스턴스 변수  
+    static int StaticV;            // default 접근제어자, 멤버 변수 중 클래스 변수
 
-    void function(int localV1)        // 지역변수1 : localV1					
+    void function(int localV1)        // default 접근제어자, 지역변수1 : localV1					
     {
-        int localV2;                // 지역변수2 : localV2
+        int localV2;                // default 접근제어자, 지역변수2 : localV2
     }
 }
 ```
@@ -33,24 +83,24 @@ class Variable {
 
   정의 : 맴버변수 중 static과 함께 선언된 변수 <br>
   특징 : 모든 인스턴스에 대해 공통된 저장공간을 갖기 때문에 항상 공통된 값을 갖는다. <br>
-  외부에서 사용하는 경우에도 인스턴스를 생성하지 않고  바로 접근할 수 있다. ex) Variable.StaticV <br>
+  외부에서 사용하는 경우에도 인스턴스를 생성하지 않고 변수에 바로 접근할 수 있다. ex) Variable.StaticV <br>
   생성시기 : 클래스가 메모리에 로딩되었을 때
 
 
 - **인스턴스 변수**
   
   정의 : 맴버변수 중 static 없이 선언된 변수 <br> 
-  특징 : 각각의 인스터스마다 독립된 값을 저장공간을 갖기 때문에 다른 값을 가질 수 있다. <br>
+  특징 : 각각의 인스터스마다 독립된 값을 다른 저장공간에 갖기 때문에 인스턴스마다 다른 값을 가질 수 있다. <br>
   생성시기 : 인스턴스가 생성되었을 때
 
 
 - **지역 변수**
 
-  정의 : 변수들 중 클래스 영역을 제외한 영역에서 선언된 변수로 맴버변수를 제외한 모든 변수<br>
+  정의 : 맴버변수를 제외한 모든 변수 ex) 메서드 내애서 선언된 변수<br>
   특징 : 클래스의 메서드 내에 선언되어 선언된 블럭( { } )에서만 사용 가능 <br>
   생성시기: 메서드 내의 변수 선언문이 실행되었을 때
 
-여기까지의 내용은 C언어의 구조체 내용과 꽤 유사하다. 여기서 자바의 클래스는 변수뿐만 아니라 메서드(함수)또한 갖는다.
+여기까지의 내용은 C언어의 구조체 내용과 꽤 유사하다. 추가로 자바의 클래스는 변수뿐만 아니라 `메서드(함수)`또한 갖는다.
 
 우선 객체의 정의는 다음과 같이 정리할 수 있다.
 
@@ -63,8 +113,8 @@ class Variable {
 
 ```java
 class Cat {
-    String Name;  	
-    int Weight;		
+    String Name;  // default 접근 제어자, String 타입으로 선언된 인스턴스 변수 Name
+    int Weight;   // default 접근 제어자 ...
     int Age;
     
     
@@ -81,7 +131,7 @@ class Cat {
 
 메서드란 클래스 내의 함수로 특정 작업을 수행하는 동작의 묶음을 의미한다.
 메서드는 크게 선언부와 구현부로 구분된다. <br>
-선언부에서는 **반환타입** **매서드명** (타입 변수명 ...)의 구조를 갖는다. 타입 변수명 ...를 보통 매개변수라고 표현한다. <br>
+선언부에서는 **반환타입** **매서드명** (매개변수)의 구조를 갖는다. <br>
 
 지금까지의 내용을 Crying이라는 메서드에 적용하여 하나하나 분리해보자.
 
@@ -91,9 +141,9 @@ class Cat {
   - 매개변수 : 없음
 - 구현부 : System.out.println("야옹");
 
-객체의 메서드를 이용하기 위해선 **객체이름.메서드명**을 통해 메서드를 호출할 수 있다.
+( 접근 제어자가 허가한다면 ) 객체의 메서드를 **객체이름.메서드명** 문법을 통해 메서드를 호출할 수 있다.
 이렇게 여러 클래스에 대한 기본적인 구조를 설명하였다. 
-이를 통해 클래스는 크게 멤버 변수와 메드로 구분되며, 멤버 변수에는 클래스 변수, 인스턴스 변수가 존재하는 것을 파악할 수 있었다.
+이를 통해 클래스는 크게 멤버 변수와 메서드로 구분되며, 멤버 변수에는 클래스 변수, 인스턴스 변수가 존재하는 것을 파악할 수 있었다.
 
 이제 클래스를 이용하여 객체를 생성해보는 과정을 진행할 것이다. 사실 이전 실습 시간에서 객체를 생성해본 적이 있다.
 String 클래스와 Scanner 클래스를 이용하여 여러 가지 코드를 작성해 보았기 때문이다.
@@ -125,7 +175,9 @@ class Account{
 
   > 참고!! <br> 한가지 주의할 것은 생성자를 통해 인스턴스가 생성되는 것이 아니다.
   생성자는 인스터스의 변수들을 초기화하며 인스턴스 생성 시 필요한 것들을 실행하는 역할이고,
-  실제 인스턴스 생성은 연산자 new 를 통하여 진행한다.
+  실제 인스턴스 생성(메모리 상에 생성)은 연산자 new 를 통하여 진행한다.
+  > 1. new 연산자를 통해 메모리에 변수명의 이름으로 메모리 할당하여 인스턴스 생성
+  > 2. 생성자를 통해 해당 인스턴스의 멤버 변수를 초기화 및 설정
 
 생성자 선언에는 두 가지 규칙이 존재한다.
 1) 클래스와 같은 이름으로 만들 것
@@ -170,16 +222,16 @@ public class Practice1 {
     account2.money = 1000;
     account2.accountNumber = 5678;
     
-    // 두 객체에 존재하는 메드 호출
+    // 두 객체에 존재하는 메서드 호출
     account1.showmethemoney();
     account2.showmethemoney();
   }
 }
 
 class Account{
-  int accountNumber; // int형으로 선언된 멤버 변수 ( 인스턴스 변수 )
-  String name;      // String 타입으로 선언된 멤버 변수 ( 인스턴스 변수 ) 
-  int money;        // int형으로 선언된 멤버 변수 ( 인스턴스 변수 )
+  int accountNumber; // int형으로 선언된 멤버 변수 ( 인스턴스 변수, default 접근 제어자 )
+  String name;      // String 타입으로 선언된 멤버 변수 ( 인스턴스 변수, default 접근 제어자 ) 
+  int money;        // int형으로 선언된 멤버 변수 ( 인스턴스 변수, default 접근 제어자 )
   
   // 생성자 1 : 매개변수를 이용하여 객체 생성
   Account(int accountNumber, String name, int money){
@@ -208,7 +260,9 @@ JAVA : 1000
 
 </details>
 
-## Practice 2 : 클래스 기초 예제 1
+<br>
+
+## Practice 1 : 클래스 기초 예제 1
 
 <details>
 
@@ -216,47 +270,72 @@ JAVA : 1000
 
 **[설명]**
 
-| 타입 | 변수명  | 설명 |
-|----|------|-------|
-| String | name | 학생의 이름 |
-| int | ban  | 반 번호 |
-| int | no   | 번호  |
-| int | kor  | 국어 성적 |
-| int | math | 수학 성적|
-| int | eng  | 영어 성적 |
+| 접근제어자   | 타입     | 변수명  | 설명 |
+|---------|--------|------|-------|
+| default | String | name | 학생의 이름 |
+| default | int     | ban    | 반 번호 |
+| default | int     | no     | 번호  |
+| default | int     | kor    | 국어 성적 |
+| default | int     | math   | 수학 성적|
+| default | int     | eng    | 영어 성적 |
 
 **[코드]**
 ```java
 class Student{
     // TO DO : 조건에 맞게 Student 멤버 변수 선언하기
-    
+    // default 접근 제어자는 작성하지 않는 경우, 자동으로 설정됩니다.
+    String name;
+    int ban;
+    int no;
+    int kor;
+    int math;
+    int eng; 
     //
 }
 ```
 
 </details>
+<br>
+
 
 ## Pracitce 2 : 클래스 기초 예제 2
 
-**[문제]** 멤버 변수의 정보를 출력해보자.
+<details>
+**[문제]** 멤버 변수의 정보를 가져오는 함수를 작성해보자
 
 **[설명]** 일반적으로 JAVA에서는 멤버 변수에 직접적으로 접근하는 방법을 권장하지 않는다. 이에 관해서는 이후에 다루게 **캡슐화**를 지키기 위함인데, 이에 관해서는 차후에 다루도록 하겠다.
 
 따라서 멤버 변수에 접근하는 메서드를 만들어서, 간접적으로 멤버 변수의 값을 가져오도록 하자. 메서드들의 조건은 다음과 같다.
-지금 작성하게 될 메서드들은 모두 멤버 변수를 반환하는 메서드로, getter라고 칭한다.
+지금 작성하게 될 메서드들은 모두 멤버 변수를 반환하는 메서드로, 이를 JAVA에서는 getter 메서드라고 칭한다.
 
-| 메서드명      | 기능                | 반환 타입  | 매개 변수 |
-|-----------|-------------------|--------|----| 
-| getName() | name 멤버 변수의 값을 반환 | String | 없음 |
-| getBan()  | ban 멤버 변수의 값을 반환  | int    | 없음 |
-| getNo()   | no 멤버 변수의 값을 반환   | int    | 없음 |
-| getKor()  | kor 멤버 변수의 값을 반환  | int    | 없음 |
-| getMath() | math 멤버 변수의 값을 반환 | int    | 없음 |
-| getEng()  | eng 멤버 변수의 값을 반환  | int    | 없음 |
+| 접근제어자     | 메서드명      | 기능                | 반환 타입  | 매개 변수 |
+|-----------|-----------|-------------------|--------|-------| 
+| default   | getName()  | name 멤버 변수의 값을 반환 | String | 없음    |
+| default   | getBan()  | ban 멤버 변수의 값을 반환  | int    | 없음    |
+| default   | getNo()   | no 멤버 변수의 값을 반환   | int    | 없음    |
+| default   | getKor()  | kor 멤버 변수의 값을 반환  | int    | 없음    |
+| default   | getMath() | math 멤버 변수의 값을 반환 | int    | 없음    |
+| default   | getEng()  | eng 멤버 변수의 값을 반환  | int    | 없음    |
 
-**[코드]** 
+**[코드]**
 ```java
 class practice2 {
+  public static void main(String[] args) {
+    Student std = new Student();
+    std.name = "HANTOR";
+    std.ban = 2;
+    std.no = 4;
+    std.kor = 100;
+    std.math = 90;
+    std.eng = 95;
+
+    System.out.println("학생의 이름 : " + std.getName());
+    System.out.println("학생의 반 : " + std.getBan());
+    System.out.println("학생의 번호 : " + std.getNo());
+    System.out.println("국어 성적 : " + std.getKor());
+    System.out.println("수학 성적 : " + std.getMath());
+    System.out.println("영어 성적 : " + std.getEng());
+  }
     
 }
 
@@ -266,7 +345,12 @@ class Student{
 ```
 
 
-## Practice 3 : 클래스 기초 예제 2
+</details>
+
+
+<br>
+
+## Practice 3 : 클래스 기초 예제 3
 <details>
 
 **[문제]** 클래스에 메서드 추가하기
@@ -310,7 +394,9 @@ class Student {
 ```
 </details>
 
-## Practice 4 : 클래스 기초 예제 3
+<br>
+
+## Practice 4 : 클래스 기초 예제 4
 <details>
 
 **[문제]** 생성자를 선언하여 Student 객체를 생성해보자.
@@ -361,7 +447,9 @@ class Student {
 ```
 </details>
 
-## Practice 5 : 클래스 기초 예제 4
+<br>
+
+## Practice 5 : 클래스 기초 예제 5
 
 <details>
 
@@ -400,13 +488,15 @@ class Student {
 ```
 </details>
 
-## Practice 6 : 클래스 기초 예제 5
+<br>
+
+## Practice 6 : 클래스 기초 예제 6
 <details>
 
 **[문제]** 언제까지 System.out.println 쓸꺼야?
 
 **[설명]** Practice 6 의 출력을 간단히 하고자 한다.
-Student 클래스에 getSummary()라는 를 선언하여, 각각의 객체에서 메드를 호출하여 출력을 진행해보자.
+Student 클래스에 getSummary()라는 를 선언하여, 각각의 객체에서 메서드를 호출하여 출력을 진행해보자.
 
 **[코드]** 
 
@@ -415,3 +505,5 @@ class
 ```
 
 </details>
+
+<br>
