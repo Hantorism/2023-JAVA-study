@@ -269,7 +269,6 @@ JAVA : 1000
 <details>
 <summary>문제 설명</summary>
 
-
 **[문제]** 다음과 같은 멤버 변수를 갖는 Student 클래스를 선언하시오.
 
 **[설명]**
@@ -405,6 +404,7 @@ class Student{
 ## Practice 3 : 클래스 기초 예제 3
 <details>
 <summary>문제 설명</summary>
+
 **[문제]** 클래스에 메서드 추가하기
 
 **[설명]** 조건에 맞게 3개의 메서드를 선언해보자.
@@ -498,6 +498,7 @@ class Student{
 ## Practice 4 : 클래스 기초 예제 4
 <details>
 <summary>문제 설명</summary>
+
 **[문제]** 생성자를 선언하여 Student 객체를 생성해보자.
 
 **[설명]** JAVA에서는 객체를 생성하기 위해 `생성자`를 이용하여 객체를 생성한다. 앞서 다룬 Practice 2,3에서는 객체 생성 시, 기본으로 존재하는 기본 생성자 `Student() { };` 를 이용하여 객체를 생성하였다.
