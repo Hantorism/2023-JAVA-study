@@ -60,7 +60,9 @@ private class private_class{
 
 **[문제]** 클래스
 
-**[설명]** 이번 예제도 이해를 돕기 위한 예제입니다. 편하게 읽어주세용.
+**[설명]** 이번 예제도 이해를 돕기 위한 예제입니다.
+
+<span style="color:red"> 읽고 또 읽어주세요.. 중요한거에요...</span>
 
 ### 자바의 변수
 ```java
@@ -210,7 +212,7 @@ class Account{
 **[코드]**
 
 ```java
-public class Practice1 {
+public class Practice01 {
   public static void main(String[] args) {
       
     // 생성자 1을 이용하여 객체 생성
@@ -265,6 +267,8 @@ JAVA : 1000
 ## Practice 1 : 클래스 기초 예제 1
 
 <details>
+<summary>문제 설명</summary>
+
 
 **[문제]** 다음과 같은 멤버 변수를 갖는 Student 클래스를 선언하시오.
 
@@ -279,7 +283,14 @@ JAVA : 1000
 | default | int     | math   | 수학 성적|
 | default | int     | eng    | 영어 성적 |
 
+</details>
+
+<details>
+<summary>정답 예제</summary>
+
+
 **[코드]**
+
 ```java
 class Student{
     // TO DO : 조건에 맞게 Student 멤버 변수 선언하기
@@ -301,6 +312,7 @@ class Student{
 ## Pracitce 2 : 클래스 기초 예제 2
 
 <details>
+<summary> 문제 설명</summary>
 
 **[문제]** 멤버 변수의 정보를 가져오는 함수를 작성해보자
 
@@ -320,9 +332,14 @@ class Student{
 | default | getMath() | math 멤버 변수의 값을 반환 | int    | 없음    |
 | default | getEng()  | eng 멤버 변수의 값을 반환  | int    | 없음    |
 
+</details>
+
+<details>
+<summary>정답 예제</summary>
+
 **[코드]**
 ```java
-class practice2 {
+class Practice02 {
   public static void main(String[] args) {
     Student std = new Student();
     std.name = "HANTOR";
@@ -387,7 +404,7 @@ class Student{
 
 ## Practice 3 : 클래스 기초 예제 3
 <details>
-
+<summary>문제 설명</summary>
 **[문제]** 클래스에 메서드 추가하기
 
 **[설명]** 조건에 맞게 3개의 메서드를 선언해보자.
@@ -400,9 +417,13 @@ class Student{
 | default | getAverage | 총점을 과목 수로 나눈 평균 값을 구한다.    | double | 없음  |
 | default | getInfo | Practice 2의 출력 결과를 출력한다.   | void   | 없음 |
 
+</details>
+<details>
+<summary>정답 예제</summary>
+
 **[코드]**
 ```java
-class Practice3 {
+class Practice03 {
     public static void main(String args[]) {
       Student std = new Student(); // 기본 생성자를 통해 객체 생성하기
       std.name = "Hantor"; // 멤버 변수에 직접 접근하여 값 할당하기
@@ -476,7 +497,7 @@ class Student{
 
 ## Practice 4 : 클래스 기초 예제 4
 <details>
-
+<summary>문제 설명</summary>
 **[문제]** 생성자를 선언하여 Student 객체를 생성해보자.
 
 **[설명]** JAVA에서는 객체를 생성하기 위해 `생성자`를 이용하여 객체를 생성한다. 앞서 다룬 Practice 2,3에서는 객체 생성 시, 기본으로 존재하는 기본 생성자 `Student() { };` 를 이용하여 객체를 생성하였다.
@@ -494,9 +515,13 @@ class Student{
 |------| --- | --- | --- | --- |-----| --- |
 | std2 | "본인 이름" | 2 | 4 | 100 | 90  | 95 | 
 
+</details>
+<details>
+<summary>정답 예제</summary>
+
 **[코드]** 
 ```java
-class Practice4 {
+class Practice04 {
   public static void main(String args[]) {
     Student std = new Student("Hantor", 1, 30, 90, 88, 100);
     // TO DO : 직접 작성한 생성자로 객체를 하나 더 만들어보자 !
@@ -594,6 +619,7 @@ class Student {
 ## Practice 5 : 클래스 기초 예제 5
 
 <details>
+<summary>문제 설명</summary>
 
 **[문제]** 생성자의 응용
 
@@ -604,9 +630,13 @@ class Student {
 - 평균이 80점 이상 90점 미만인 경우 "중"
 - 평균이 80점 미만인 경우 "하"로 정한다.
 
+</details>
+<details>
+<summary>정답 예제</summary>
+
 **[코드]**
 ```java
-class Practice5{
+class Practice05{
   public static void main(String args[]) {
     Student std = new Student("Hantor", 1, 30, 90, 88, 100);
     
@@ -659,10 +689,11 @@ class Student {
 
 ## Practice 6 : 클래스 기초 예제 6
 <details>
+<summary>문제 설명</summary>
 
 **[문제]** 어떻게 사람 이름이..
 
-**[설명]** 항상 남을 돕는 박한터는 이름 때문에 힘들어하는 친구를 위해서 메서드를 작성하고자 한다. 
+**[설명]** 항상 남을 돕는 김한터는 이름 때문에 힘들어하는 친구를 위해서 메서드를 작성하고자 한다. 
 하지만 모든 친구들의 이름을 바꿔주는 건 아닌 것 같아서, 조건에 부합하는 이름만 변경해주려고 한다. 조건은 다음과 같다.
 
 ### 이름의 조건
@@ -676,12 +707,16 @@ class Student {
 |---------|------------|-----------------------------------|-------|-------|
 | default | modifyName | 조건에 만족하는 이름이라면, 매개 변수로 입력한 이름으로 변경한다.<br/> 변경하려는 이름이 대한 조건을 먼저 따진 후에, 현재 이름에 대한 조건을 확인한다. | void  | 바꿀 이름 |
 
+</details>
+<details>
+<summary>정답 예제</summary>
+
 **[코드]** 
 
 ```java
 import java.util.Scanner;
 
-public class practice6 {
+public class Practice06 {
   public static void main(String[] args) {
     Student[] class1 = new Student[30]; // 클래스 배열! 다음 회차에 배웁니다.
     class1[0] = new Student("박자바", 1, 1, 100, 100, 100);
