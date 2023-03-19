@@ -1,6 +1,6 @@
 # 2회차 문제
 
-### 이번 회차 예제 중 Practice 1~6는 이전에 작성한 Student 클래스 코드에 추가적으로 작성하는 방식이므로, 작성한 Student 클래스 코드를 다음 문제에도 이용하시면 됩니다.
+### 이번 회차 예제 중 Practice 2,3,4,5,6는 이전에 작성한 코드에 추가적으로 작성하는 방식이므로, 작성한 Student 클래스 코드를 다음 문제에도 이용하시면 됩니다.
 
 ## Practice 0 : 접근 제어자
 <details>
@@ -60,7 +60,9 @@ private class private_class{
 
 **[문제]** 클래스
 
-**[설명]** 이번 예제도 이해를 돕기 위한 예제입니다. 편하게 읽어주세용.
+**[설명]** 이번 예제도 이해를 돕기 위한 예제입니다.
+
+<span style="color:red"> 읽고 또 읽어주세요.. 중요한거에요...</span>
 
 ### 자바의 변수
 ```java
@@ -265,6 +267,7 @@ JAVA : 1000
 ## Practice 1 : 클래스 기초 예제 1
 
 <details>
+<summary>문제 설명</summary>
 
 **[문제]** 다음과 같은 멤버 변수를 갖는 Student 클래스를 선언하시오.
 
@@ -279,7 +282,14 @@ JAVA : 1000
 | default | int     | math   | 수학 성적|
 | default | int     | eng    | 영어 성적 |
 
+</details>
+
+<details>
+<summary>정답 예제</summary>
+
+
 **[코드]**
+
 ```java
 class Student{
     // TO DO : 조건에 맞게 Student 멤버 변수 선언하기
@@ -301,6 +311,7 @@ class Student{
 ## Pracitce 2 : 클래스 기초 예제 2
 
 <details>
+<summary> 문제 설명</summary>
 
 **[문제]** 멤버 변수의 정보를 가져오는 함수를 작성해보자
 
@@ -319,6 +330,11 @@ class Student{
 | default | getKor()  | kor 멤버 변수의 값을 반환  | int    | 없음    |
 | default | getMath() | math 멤버 변수의 값을 반환 | int    | 없음    |
 | default | getEng()  | eng 멤버 변수의 값을 반환  | int    | 없음    |
+
+</details>
+
+<details>
+<summary>정답 예제</summary>
 
 **[코드]**
 ```java
@@ -343,10 +359,38 @@ class Practice02 {
 }
 
 class Student{
-  // Have to Paste Practice 01 code. 
-    
-  // TO DO : make getter method
+  String name;
+  int ban;
+  int no;
+  int kor;
+  int math;
+  int eng;
 
+  
+  // TO DO : make getter method
+  String getName() {
+    return name;
+  }
+
+  int getBan() {
+    return ban;
+  }
+
+  int getNo() {
+    return no;
+  }
+
+  int getKor() {
+    return kor;
+  }
+
+  int getMath() {
+    return math;
+  }
+
+  int getEng() {
+    return eng;
+  }
   //
 }
 ```
@@ -359,6 +403,7 @@ class Student{
 
 ## Practice 3 : 클래스 기초 예제 3
 <details>
+<summary>문제 설명</summary>
 
 **[문제]** 클래스에 메서드 추가하기
 
@@ -371,6 +416,10 @@ class Student{
 | default | getTotal    | kor, eng, math의 값을 모두 더한다. | int    | 없음  |
 | default | getAverage | 총점을 과목 수로 나눈 평균 값을 구한다.    | double | 없음  |
 | default | getInfo | Practice 2의 출력 결과를 출력한다.   | void   | 없음 |
+
+</details>
+<details>
+<summary>정답 예제</summary>
 
 **[코드]**
 ```java
@@ -391,11 +440,54 @@ class Practice03 {
 }
 
 class Student{
-    // Have to Paste Practice 02 code.
+  String name;
+  int ban;
+  int no;
+  int kor;
+  int math;
+  int eng;
+
+  String getName() {
+    return name;
+  }
+
+  int getBan() {
+    return ban;
+  }
+
+  int getNo() {
+    return no;
+  }
+
+  int getKor() {
+    return kor;
+  }
+
+  int getMath() {
+    return math;
+  }
+
+  int getEng() {
+    return eng;
+  }
 
     // TO DO : Make getTotal(), getAverage(), getInfo() Method
-  
-    //
+  int getTotal() {
+    return this.kor + this.math + this.eng;
+  }
+  double getAverage() {
+    return getTotal()/3;
+    // return (this.kor + this.math + this.eng)/3;
+  }
+
+  void getInfo() {
+    System.out.println("학생의 이름 : " + this.name);
+    System.out.println("학생의 반 : " + this.ban);
+    System.out.println("학생의 번호 : " + this.no);
+    System.out.println("국어 성적 : " + this.kor);
+    System.out.println("수학 성적 : " + this.math);
+    System.out.println("영어 성적 : " + this.eng);
+  }
 
 }
 ```
@@ -405,6 +497,7 @@ class Student{
 
 ## Practice 4 : 클래스 기초 예제 4
 <details>
+<summary>문제 설명</summary>
 
 **[문제]** 생성자를 선언하여 Student 객체를 생성해보자.
 
@@ -422,6 +515,10 @@ class Student{
 | 변수명  | name  | ban  | no | kor | eng | math |
 |------| --- | --- | --- | --- |-----| --- |
 | std2 | "본인 이름" | 2 | 4 | 100 | 90  | 95 | 
+
+</details>
+<details>
+<summary>정답 예제</summary>
 
 **[코드]** 
 ```java
@@ -442,11 +539,78 @@ class Practice04 {
   }
 }
 class Student {
-  // Have to Paste Practice 03 code.
+  String name;
+  int ban;
+  int no;
+  int kor;
+  int math;
+  int eng;
+
+  String getName() {
+    return name;
+  }
+
+  int getBan() {
+    return ban;
+  }
+
+  int getNo() {
+    return no;
+  }
+
+  int getKor() {
+    return kor;
+  }
+
+  int getMath() {
+    return math;
+  }
+
+  int getEng() {
+    return eng;
+  }
   
-  // TO DO : Student 객체 생성자 작성하기
-  
-  //
+  int getTotal() {
+    return this.kor + this.math + this.eng;
+  }
+  double getAverage() {
+    return getTotal()/3;
+    // return (this.kor + this.math + this.eng)/3;
+  }
+
+  void getInfo() {
+    System.out.println("학생의 이름 : " + this.name);
+    System.out.println("학생의 반 : " + this.ban);
+    System.out.println("학생의 번호 : " + this.no);
+    System.out.println("국어 성적 : " + this.kor);
+    System.out.println("수학 성적 : " + this.math);
+    System.out.println("영어 성적 : " + this.eng);
+  }
+    // TO DO : Student 객체 생성자 작성하기
+    Student(String name, int ban, int no, int kor, int math, int eng){
+      this.name = name;
+      this.ban = ban;
+      this.no = no;
+      this.kor = kor;
+      this.math = math;
+      this.eng = eng;
+
+      if( ((eng + kor + math) / 3) >= 90) {
+        this.level = "상";
+      } else if (((eng + kor + math) / 3) >= 80) {
+        this.level = "중";
+      } else
+        this.level = "하";
+
+//      if(this.getAverage() >= 90) {
+//        this.level = "상";
+//      } else if (this.getAverage() >= 80){
+//        this.level = "중";
+//      } else
+//        this.level = "하";
+
+    }
+    //
 }
 ```
 </details>
@@ -456,6 +620,7 @@ class Student {
 ## Practice 5 : 클래스 기초 예제 5
 
 <details>
+<summary>문제 설명</summary>
 
 **[문제]** 생성자의 응용
 
@@ -465,6 +630,10 @@ class Student {
 - 평균이 90점 이상인 경우 "상"
 - 평균이 80점 이상 90점 미만인 경우 "중"
 - 평균이 80점 미만인 경우 "하"로 정한다.
+
+</details>
+<details>
+<summary>정답 예제</summary>
 
 **[코드]**
 ```java
@@ -479,10 +648,39 @@ class Practice05{
   }
 }
 class Student {
-  // Have to Paste Practice 04 code.
-  
+  String name;
+  int ban;
+  int no;
+  int kor;
+  int eng;
+  int math;
   // TO DO : level 변수 추가 및 생성자 수정
+  String level;
   
+  Student(String name, int ban, int no, int kor, int math, int eng){
+    this.name = name;
+    this.ban = ban;
+    this.no = no;
+    this.kor = kor;
+    this.math = math;
+    this.eng = eng;
+
+    // 수정된 부분
+    if( ((eng + kor + math) / 3) >= 90) {
+      this.level = "상";
+    } else if (((eng + kor + math) / 3) >= 80) {
+      this.level = "중";
+    } else
+      this.level = "하";
+
+//      if(this.getAverage() >= 90) {
+//        this.level = "상";
+//      } else if (this.getAverage() >= 80){
+//        this.level = "중";
+//      } else
+//        this.level = "하";
+
+  }
   //
 }
 ```
@@ -492,10 +690,11 @@ class Student {
 
 ## Practice 6 : 클래스 기초 예제 6
 <details>
+<summary>문제 설명</summary>
 
 **[문제]** 어떻게 사람 이름이..
 
-**[설명]** 항상 남을 돕는 박한터는 이름 때문에 힘들어하는 친구를 위해서 메서드를 작성하고자 한다. 
+**[설명]** 항상 남을 돕는 김한터는 이름 때문에 힘들어하는 친구를 위해서 메서드를 작성하고자 한다. 
 하지만 모든 친구들의 이름을 바꿔주는 건 아닌 것 같아서, 조건에 부합하는 이름만 변경해주려고 한다. 조건은 다음과 같다.
 
 ### 이름의 조건
@@ -509,6 +708,9 @@ class Student {
 |---------|------------|-----------------------------------|-------|-------|
 | default | modifyName | 조건에 만족하는 이름이라면, 매개 변수로 입력한 이름으로 변경한다.<br/> 변경하려는 이름이 대한 조건을 먼저 따진 후에, 현재 이름에 대한 조건을 확인한다. | void  | 바꿀 이름 |
 
+</details>
+<details>
+<summary>정답 예제</summary>
 
 **[코드]** 
 
@@ -535,14 +737,151 @@ public class Practice06 {
   }
 }
 
+class Student{
 
-class Student {
-  // Have to Paste Practice 05 code.
+  class Student {
+    String name;
+    int ban;
+    int no;
+    int kor;
+    int math;
+    int eng;
+    String level; 
 
-  // TO DO : modifyName() 메서드
+
+    Student(String name, int ban, int no, int kor, int math, int eng){
+      this.name = name;
+      this.ban = ban;
+      this.no = no;
+      this.kor = kor;
+      this.math = math;
+      this.eng = eng;
+
+      if( ((eng + kor + math) / 3) >= 90) {
+        this.level = "상";
+      } else if (((eng + kor + math) / 3) >= 80) {
+        this.level = "중";
+      } else
+        this.level = "하";
+
+      if(this.getAverage() >= 90) {
+        this.level = "상";
+      } else if (this.getAverage() >= 80){
+        this.level = "중";
+      } else
+        this.level = "하";
+
+    }
+
+    String getName() {
+      return name;
+    }
+
+    int getBan() {
+      return ban;
+    }
+
+    int getNo() {
+      return no;
+    }
+
+    int getKor() {
+      return kor;
+    }
+
+    int getMath() {
+      return math;
+    }
+
+    int getEng() {
+      return eng;
+    }
+
+    int getTotal() {
+      return this.kor + this.math + this.eng;
+    }
+    double getAverage() {
+      return getTotal()/3;
+      // return (this.kor + this.math + this.eng)/3;
+    }
+
+    void getInfo() {
+      System.out.println("학생의 이름 : " + this.name);
+      System.out.println("학생의 반 : " + this.ban);
+      System.out.println("학생의 번호 : " + this.no);
+      System.out.println("국어 성적 : " + this.kor);
+      System.out.println("수학 성적 : " + this.math);
+      System.out.println("영어 성적 : " + this.eng);
+    }
+
+    // TO DO : modifyName() 메서드 
+    void modifyName(String newName) {
+      // newName에 대한 검증 시
+      if(newName.contains("자바") ||
+              newName.contains("객체") ||
+              newName.contains("클래스") ||
+              newName.contains("변수") ||
+              newName.length() < 3 ){
+
+        System.out.println("변경하려는 이름이 조건에 부합하지 않습니다.");
+      } else { //newName에 대한 검증이 완료 되었다면
+        if( (this.name.contains("자바") ||
+                this.name.contains("객체") ||
+                this.name.contains("클래스") ||
+                this.name.contains("변수") ) &&
+                this.name.length() >= 3) {
+
+          this.name = newName;
+          System.out.println("변경이 완료되었습니다.");
+        } else {
+          System.out.println("원래 이름이 조건에 부합하지 않습니다.");
+        }
+      }
+    }
+
+//	// version 1
+//	void modifyName(String newName) {
+//		if (isValidName(this.name) == true) {
+//			
+//			if(isValidName(newName) == true)
+//				this.name = newName;
+//			else
+//				System.out.println("변경하려는 이름이 조건에 부합하지 않습니다.");
+//		}
+//		System.out.println("원래 이름이 조건에 부합하지 않습니다.");
+//		
+//	}
+
+//	//version 2
+//	void modifyName(String newName){
+//	    if (!isValidName(newName)) { // isValidName(newName) == false 와 동일합니다.
+//	        System.out.println("변경하려는 이름이 조건에 부합하지 않습니다.");
+//	        return;
+//	    }
+//
+//	    if (!isValidName(this.name)) {
+//	    	System.out.println("원래 이름이 조건에 부합하지 않습니다.");
+//	    	return;
+//	    }
+//	    
+//	    this.name = newName;
+//	}
+
+    boolean isValidName(String name) {
+      if (name.contains("자바") ||
+              name.contains("객체") ||
+              name.contains("클래스") ||
+              name.contains("변수") ||
+              name.length() < 3) {
+        return false;
+      }
+      return true;
+    }
+    //
+  }
+
 }
 ```
-
 
 </details>
 
