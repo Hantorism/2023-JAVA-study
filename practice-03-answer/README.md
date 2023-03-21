@@ -69,16 +69,68 @@
 
 `num[0] = 0` ~~> `deck[0] = new Card[]`
 
-일반적인 자료형의 경우 값을 할당하기 위해 값을 만드는 과정이 단순히 0과 같이 입력하면 되지만, 사용자 정의 자료형은 클래스의 경우 new 연산자와 `생성자`를 이용해야하기 때문에 다른점이 존재하는 것이다.
+일반적인 자료형의 경우 값을 할당하기 위해 값을 만드는 과정이 단순히 0과 같이 입력하면 되지만,
+사용자 정의 자료형은 클래스의 경우 new 연산자와 `생성자`를 이용해야하기 때문에 다른점이 존재하는 것이다.
 
 
 **[코드]**
 
+Card 객체를 배열에 선언하여, for 문을 통해서 배열 전체에 객체를 할당하는 코드입니다.
+
 ```java
 public class Practice0{
     public static void main(String[] args){
-            
+      Card[] Deck = new Card[54]; // Card 객체를 배열에 선언
+
+      int a;
+      for(a = 0; a < 13; a++) {
+          Deck[a] = new Card("SPADE", "BLACK", a+1); 
+      }
+      for(a = 13 * 1 ; a < 13 * 2 ; a++) {
+          Deck[a] = new Card("DIAMOND", "RED", a - 13*1 + 1);
+      }
+      for(a = 13 * 2 ; a < 13 * 3 ; a++) {
+          Deck[a] = new Card("HEART", "RED", a - 13*2 + 1);
+      }
+      for(a = 13 * 3; a < 13 * 4 ; a++) {
+          Deck[a] = new Card("CLOVER", "BLACK", a - 13*3 + 1);
+      }
+      Deck[52] = new Card("JOKER", "RED", -1);
+      Deck[53] = new Card("JOKER", "BLACK", -1);
+
+      for(a = 0; a < 54; a++) {
+          System.out.println(Deck[a].toString());
+      }
     }
+}
+
+class Card{ 
+    String suit; // diamond, heart, clover, spade, joker
+    String color; // red, black
+    int rank; // a + 2~10 + j, q, k --> 1 ~ 13
+
+  Card(String suit, String color, int rank){
+      this.suit = suit;
+      this.color = color;
+      this.rank = rank;
+  }
+
+  public String getSuit() {
+      return suit;
+  }
+
+  public String getColor() {
+      return color;
+  }
+
+  public int getRank() {
+      return rank;
+  }
+
+  public String toString() {
+      return this.suit + " " + this.color + " " + this.rank;
+  }
+
 }
 ```
 
@@ -131,7 +183,7 @@ public class Practice02{
 
 <br>
 
-## Practice 3 : 객체 배열 예제 3
+## Practice 3 : private 접근 제어자
 
 <details>
 <summary> 문제 설명</summary>
