@@ -142,18 +142,59 @@ class Card{
 <details>
 <summary> 문제 설명</summary>
 
-**[문제]**
+**[문제]** 조장은 사다리 타기로 뽑을까요?
 
-**[설명]**
+**[설명]** 
+
+- 요구사항 1. Student 클래스를 작성하세요.
+  - 멤버 변수로는 이름(name), 학번(studentID), 전공(major)이 포함됩니다.
+- 요구사항 2. Student 객체를 5개 담을 수 있는 배열을 선언하여, 객체를 담아줍니다.
+  - 학생들에 대한 정보는 다음과 같습니다.
+  
+  |학생 이름| 학번        | 전공        | 
+  |-----------|-----------|---|
+  |김자바| 202220736 | software  |
+  |박홍길| 202220712 | software  |
+  |최원딤| 202020842 | Mathematics |
+  |이장원| 201320712 | economics |      
+  
+  
 
 **[코드]**
 
 ```java
 public class Practice01{
-    public static void main(String[] args){
-        
-    }
+  public static void main(String[] args){
+    Student[] group = new Student[4];
+    // TO DO : assign student instance to array with information
+    group[0] = new Student("김자바", 202220736, "software");
+    group[1] = new Student("박홍길", 202220712, "software");
+    group[2] = new Student("최원딤", 202020842, "Mathematics");
+    group[3] = new Student("이장원", 201320712, "economics");
+
+    System.out.println(group[0].name + " " + group[0].studentID + " " + group[0].major);
+    System.out.println(group[1].name + " " + group[1].studentID + " " + group[1].major);
+    System.out.println(group[2].name + " " + group[2].studentID + " " + group[2].major);
+    System.out.println(group[3].name + " " + group[3].studentID + " " + group[3].major);
+
+    int captain = (int)(Math.random()*4);
+    System.out.println(group[captain].name + " 조장님 잘 부탁드려요~");
+  }
 }
+
+class Student{
+  // TO DO : make variable
+  public String name;
+  public int studentID;
+  public String major;
+
+  public Student(String name, int studentID, String major){
+    this.name = name;
+    this.studentID = studentID;
+    this.major = major;
+  }
+}
+
 ```
 
 </details>
