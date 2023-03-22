@@ -171,13 +171,13 @@ public class Practice01{
     group[1] = new Student("박홍길", 202220712, "software");
     group[2] = new Student("최원딤", 202020842, "Mathematics");
     group[3] = new Student("이장원", 201320712, "economics");
-
-    System.out.println(group[0].name + " " + group[0].studentID + " " + group[0].major);
-    System.out.println(group[1].name + " " + group[1].studentID + " " + group[1].major);
-    System.out.println(group[2].name + " " + group[2].studentID + " " + group[2].major);
-    System.out.println(group[3].name + " " + group[3].studentID + " " + group[3].major);
-
-    int captain = (int)(Math.random()*4);
+    //
+    
+    for(int a = 0; a < 4; a++){
+      System.out.println(group[a].name + " " + group[a].studentID + " " + group[a].major);
+    }
+    
+    int captain = (int)(Math.random() * 4); // 0부터 4까지 무작위로 조장 선정
     System.out.println(group[captain].name + " 조장님 잘 부탁드려요~");
   }
 }
@@ -196,6 +196,17 @@ class Student{
 }
 
 ```
+
+출력 결과 :
+(마지막 문장은 4명 중에 무작위로 선정됩니다.)
+
+김자바 202220736 software <br>
+박홍길 202220712 software <br>
+최원딤 202020842 Mathematics <br>
+이장원 201320712 economics <br>
+최원딤 조장님 잘 부탁드려요~ <br>
+
+
 
 </details>
 
