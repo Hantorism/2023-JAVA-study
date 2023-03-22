@@ -1,4 +1,4 @@
-public class Practice04 {
+public class Practice03 {
     public static void main(String[] args) {
         // hint : Class 배열을 생성하는 방법
         // ClassName[] arrayName = new ClassName[arrayLength];
