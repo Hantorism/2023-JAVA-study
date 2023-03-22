@@ -313,8 +313,8 @@ class Account{
 클래스 배열은 각각 deck[60], hand[5]의 이름과 크기를 갖는다
 <br> 또한 생성자를 통해 덱의 0~4 인덱스에 미리 엑조디아 카드를 만들어보자
 <br> 엑조디아 카드의 구성은 아래와 같으며 각 인덱스별 어느 카드가 위치할지는 상관 없다.
+ <img width="387" alt="스크린샷 2023-03-22 오후 12 21 22" src="https://user-images.githubusercontent.com/52846766/226793843-fe4e3ba6-e6eb-4a3b-83dc-4b4e61986243.png">
 <img width="609" alt="스크린샷 2023-03-22 오후 12 20 24" src="https://user-images.githubusercontent.com/52846766/226793718-181c3279-a587-4fb4-8898-271820016dff.png"><br>
-<img width="387" alt="스크린샷 2023-03-22 오후 12 21 22" src="https://user-images.githubusercontent.com/52846766/226793843-fe4e3ba6-e6eb-4a3b-83dc-4b4e61986243.png">
 
 </details>
 <br>
