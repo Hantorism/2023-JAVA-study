@@ -13,12 +13,16 @@ public class Practice04 {
     }
 
     // hint : static draw method 선언부
-
     {
         // hint : deck의 첫 번째 요소를 hand로 옮기자
 
         // hint : deck의 요소들을 다음 요소의 값으로 덮어씌우자
         // 덮어씌우는 배열의 개수는 뽑힌 카드의 수만큼 감소해야 한다
+    }
+
+    // hint : static checkHand method 선언부
+    {
+        // hint : 문자열을 확인하기 위해 .contains() 메서드를 사용해보자
     }
 }
 
