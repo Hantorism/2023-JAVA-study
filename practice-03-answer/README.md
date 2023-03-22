@@ -227,7 +227,7 @@ class Student{
 1. private
 2. default
 3. protected
-4. public
+4. public 
 
 접근 제어자는 private -> default -> protected -> public 순으로 보다 많은 접근을 허용한다. 하나씩 순서대로 살펴보자.
 
