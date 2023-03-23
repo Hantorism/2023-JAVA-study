@@ -431,8 +431,6 @@ public class Practice04 {
                 count++;
             } else if (card.name.contains("왼쪽 다리")) {
                 count++;
-            } else if (card.name.contains("엑조디아")) {
-                count++;
             }
         }
 
