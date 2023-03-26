@@ -341,52 +341,187 @@ class Shop{
 </details>
 
 
-## Practice 3 : 다형성 (오버라이딩)
+
+## Practice 3 : 클래스 간의 관계
+
+
+<details>
+<summary>문제 설명</summary>
+
+### **[문제]** 오 이게 돼?
+
+클래스 간의 관계는 간단하게 `상속` vs `포함`으로 구분할 수 있다.
+우선 이해하기 쉬운 `포함` 관계에 대해 먼저 설명하자면, 클래스의 멤버 변수로 다른 클래스가 들어가는 것을 의미한다.
+다음과 같은 코드를 확인하자.
+
+```java
+public class Practice03 {
+  public static void main(String args[]) {
+    Circle c = new Circle();
+    c.p.x = 3;
+    c.p.y = 4;
+    c.r = 3;
+  }
+}
+
+class Point {
+    int x; // x 좌표
+    int y; // y 좌표
+}
+
+class Circle{
+    Point p = new Point(); // 원점
+    int r; // 반지름 
+}
+```
+Point라는 클래스(객체)를 Circle의 멤버변수로 이용하면서 Point의 x, y 멤버 변수를 이용할 수 있게 되었다.
+Circle에서 Point 객체에 대해 접근하기 위해서는 위와 같이 . 을 통해 접근할 수 있다. 하지만 이후의 과정에서는 이렇게 . 을
+통해서 접하는 방식보다는 값을 설정하는 메서드를 이용하여 접근하는 것이 일반적이다.
+
+그럼 이제 `상속`에 대해서 간단하게 정리하면 다음과 같다.
+1. 상속이란 기존의 클래스를 재사용해서 새로운 클래스를 작성하는 것을 의미한다.
+2. 새롭게 작성한 클래스에 대해서 조상과 자손으로 관계를 맺어준다.
+3. 자손은 생성자와 초기화 블럭을 제외한 모든 멤버를 상속받는다.
+
+상속의 과정을 통해, 조상-자손 클래스 간의 공통 부분은 조상 클래스 부분에 작성하고 개별 부분으로는 자손 클래스 부분에는 작성하는
+과정을 통해서 코드의 간소화를 이룰 수 있다. 다음 코드를 보자.
+
+```java
+class Tv {
+  String color;
+  boolean power;
+  int channel;
+
+  Tv(String color){
+    this.color = color;
+  }
+
+  void changePower() {
+    power = !power;
+  }
+
+  void channelUp() {
+    channel ++;
+  }
+
+  void channelDown() {
+    channel --;
+  }
+}
+
+
+class CaptionTv  {
+  String color;
+  boolean power;
+  int channel;
+  String language;
+  int fontSize;
+  
+  CaptionTv(String color, String language){
+      this.color = color;
+      this.language = language;
+  }
+
+  void changePower() {
+    power = !power;
+  }
+
+  void channelUp() {
+    channel ++;
+  }
+
+  void channelDown() {
+    channel --;
+  }
+
+  void fontSizeUp() {
+    fontSize ++;
+  }
+
+  void fontSizeDown() {
+    fontSize --;
+  }
+}
+```
+위의 두 코드를 잘 보면, 멤버 변수 color, power, channel과 changePower(), channelUp(), channelDown() 메서드가
+공통된 것을 확인할 수 있다. 이러한 경우에 공통된 부분을 조상 클래스로 설정하여 상속을 진행하는 것이 가능하다.
+
+다음의 두 클래스 중에 Tv 클래스는 `조상 클래스`가 되고, CaptionTv 클래스는 `자손 클래스`가 된다. 상속 과정 후 코드는 다음과 같다.
+
+```java
+class CaptionTv extends Tv {
+	
+	String language;
+	int fontSize;
+
+	CaptionTv(String color, String language){
+		super(color);
+		this.language = language;
+	}
+	
+	void fontSizeUp() {
+		fontSize ++;
+	}
+	
+	void fontSizeDown() {
+		fontSize --;
+	}
+}
+```
+
+이 중에서 `super(color)`는 조상 클래스의 생성자에 color을 매개변수로 전달하여
+조상의 생성자인 `Tv(String color){  this.color = color; }`를 통해 color의 멤버변수에 값을 할당하는 과정이다.
+
+this() 생성자와 마찬가지로 super() 생성자는 생성자 코드의 가장 위에 위치해야한다. 
+
+
+
+### **[설명]** super
+
+</details>
+
+<details>
+<summary>정답</summary>
+
+### **[코드]**
+
+</details>
+
+## Practice 4 : 상속 응용
+
 
 <details>
 <summary>문제 설명</summary>
 
 ### **[문제]**
+
+### **[설명]** super
+
+</details>
+
+<details>
+<summary>정답</summary>
+
+### **[코드]**
+
+</details>
+
+## Practice 5 : 다형성 (오버라이딩)
+
+<details>
+<summary>문제 설명</summary>
+
+### **[문제]** 다형성 (오버라이딩)
 
 ### **[설명]**
 
-</details>
+우선 자바에서의 다형성 (Polymorphism)은 두 가지 의미를 갖는다.
+> 1) 한 타입의 참조 변수로 여러 타입의 객체를 참조할 수 있는 능력
+> 2) 하나의 객체나 메소드가 여러가지 다른 형태를 가질 수 있는 능력
 
-<details>
-<summary>정답</summary>
+자바에서의 다형성에는 `오버로딩`, `오버라이딩`, `형변환`, `인터페이스`, `추상클래스` 등이 존재한다.
+이번 문제에서는 오버라이딩에 대해 다룰 예정이다.
 
-### **[코드]**
-
-</details>
-
-## Practice 4 : 상속 기초
-
-
-<details>
-<summary>문제 설명</summary>
-
-### **[문제]**
-
-### **[설명]** super
-
-</details>
-
-<details>
-<summary>정답</summary>
-
-### **[코드]**
-
-</details>
-
-## Practice 5 : 상속 응용
-
-
-<details>
-<summary>문제 설명</summary>
-
-### **[문제]**
-
-### **[설명]** super
 
 </details>
 
