@@ -196,7 +196,7 @@ class Car{
 
 ### **[문제]** static keyword
 
-### **[설명]**
+### **[이론]**
 
 - static keyword
 
@@ -216,9 +216,70 @@ class Car{
 
 `static` keyword는 변수로 쓰이는 경우 대부분 공유의 목적으로 이용된다. `static`이 붙은 변수들의 경우 공통된 메모리 공간을 이용하기 때문에,
 **서로 다른 객체에서 해당 변수를 이용하여도 같은 메모리 공간에 접근하여 데이터 값을 변동시킬 수 있다.**
+ 
+```java
+public class Practice03 {
 
-다음과 같은 예제를 확인하자.
+  public static void main(String[] args) {
+    Counter c1 = new Counter();
+    System.out.println("c1's count_static " + c1.count_static); 
+    // c1.count_static == Counter.count_static
+    System.out.println("c1's count_normal " + c1.count_normal + "\n");
 
+    Counter c2 = new Counter();
+    System.out.println("c2's count_static " + c2.count_static);
+    // c2.count_static == Counter.count_static
+    System.out.println("c2's count_normal " + c2.count_normal + "\n");
+
+    Counter c3 = new Counter();
+    System.out.println("c3's count_static " + c3.count_static);
+    // c3.count_static == Counter.count_static
+    System.out.println("c3's count_normal " + c3.count_normal + "\n");
+
+    System.out.println("c1's count_static " + c1.count_static);
+    System.out.println("c1's count_normal " + c1.count_normal + "\n");
+  }
+
+}
+
+class Counter{
+  public static int count_static = 0;
+  public int count_normal = 0;
+
+  public Counter() {
+    count_static += 1;
+    count_normal += 1;
+  }
+
+}
+
+/* 출력 결과
+c1's count_static 1
+c1's count_normal 1
+
+c2's count_static 2
+c2's count_normal 1
+
+c3's count_static 3
+c3's count_normal 1
+
+c1's count_static 3
+c1's count_normal 1
+ */
+```
+
+static이 붙은 멤버 변수(클래스 변수)의 경우에는 서로 다른 객체에서 접근하여도,
+공통된 메모리를 사용하여 값이 같이 변동되는 것을 확인할 수 있다.
+
+### **[설명]**
+
+한터 직영점을 다루는 사장님이 운영하는 여러 매장에 대해서 소득과 고객 수를 파악하려고 한다.
+소득은 멤버변수로 선언이 되어 객체마다 다른 값을 갖도록 하고 **고객 수를 통합**하여 파악하려고 한다. TO DO 부분을 채워서 해당 출력 결과를 얻도록 만들어보자.
+
+1. getOrder() 메소드 <br>
+  호출 시에 orderNumber을 1 증가시키고, 해당 객체의 income에 price만큼 더한다.
+2. main 메소드의 TODO 부분 채우기 <br>
+  orderNumber의 값을 출력한다.
 </details>
 
 <details>
@@ -226,9 +287,61 @@ class Car{
 
 ### **[코드]**
 
+```java
+public class Practice02 {
+	public static void main(String args[]) {
+		Shop[] shops = new Shop[5];
+		for(int a=0; a<3; a++) {
+			shops[a] = new Shop("한터 " + (a+1) +"호점", 10000 *(a + 1));
+		}
+		
+		shops[0].getOrder();	shops[0].getOrder();	shops[0].getOrder();
+		shops[1].getOrder();	shops[1].getOrder();
+		shops[2].getOrder();	
+		
+		for(int a=0; a<3; a++) {
+			shops[a].getInfo();
+		}
+		
+		// TO DO 1 : print orderNumber value
+		//System.out.println("Total orderNumber " + Shop.orderNumber);
+		//System.out.println("\nTotal orderNumber " + shops[0].orderNumber);
+        System.out.println("\nTotal orderNumber " + (TODO));
+		//
+	}
+}
+
+class Shop{
+	public String name;
+	static int orderNumber = 0;
+	public int price;
+	public int income = 0;
+	
+	public Shop(String name, int price) {
+		this.name = name;
+		this.price = price;
+	}
+	
+	// TO DO 2 : make getOrder Method
+	public void getOrder() {
+		orderNumber++;
+		this.income += price;
+	}
+	//
+	
+	public void getInfo() {
+		System.out.println("\nSHOP NAME : " + this.name);
+		System.out.println("MENU PRICE : " + this.price);
+		System.out.println("SHOP INCOME : " + this.income);
+	}
+}
+
+```
+
 </details>
 
-## Practice 3 : static keyword (메서드)
+
+## Practice 3 : 다형성 (오버라이딩)
 
 <details>
 <summary>문제 설명</summary>
@@ -246,25 +359,7 @@ class Car{
 
 </details>
 
-## Practice 4 : 다형성 (오버라이딩)
-
-<details>
-<summary>문제 설명</summary>
-
-### **[문제]**
-
-### **[설명]**
-
-</details>
-
-<details>
-<summary>정답</summary>
-
-### **[코드]**
-
-</details>
-
-## Practice 5 : 상속 기초
+## Practice 4 : 상속 기초
 
 
 <details>
@@ -283,7 +378,7 @@ class Car{
 
 </details>
 
-## Practice 6 : 상속 응용
+## Practice 5 : 상속 응용
 
 
 <details>
