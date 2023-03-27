@@ -295,7 +295,7 @@ Account 클래스를 작성하고자 한다. Account 클래스의 구성요소�
 | 접근제어자   | 자료형    | 변수명        | 설명                   |
 |---|--------|---|---|
 | private | String | name | 고객의 이름을 담는 멤버변수이다.|
-|private | int    | phoneNumber | 고객의 핸드폰 번호를 담는 멤버변수이다. |
+|private | String | phoneNumber | 고객의 핸드폰 번호를 담는 멤버변수이다. |
 
 
 </details>
