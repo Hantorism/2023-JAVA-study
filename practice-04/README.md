@@ -130,7 +130,7 @@ std3 : 마지막 생성자 코드부터 시작하여, 제일 위의 생성자 �
 |---|---|----------|
 |public|String| carType  |
 |public|int| carNumber |
-|public|int| carInfo  |
+|public|int| carCondition |
 |public|String|customerName|
 
 생성자는 모두 public 접근 제어자를 갖으며, 총 2개 존재한다. 
