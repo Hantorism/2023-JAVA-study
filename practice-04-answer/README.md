@@ -6,13 +6,14 @@
 
 ### **[문제]** this() 이론
 
-### **[이론]** this()를 이용한 클래스 내의 다른 생성자 호출
+### **[설명]** this()를 이용한 클래스 내의 다른 생성자 호출
 
 
 <span style="color:red"> 설명을 위한 문제입니다. 푸는거 없어요</span>
 <br>
 
-클래스는 최소한 한 가지 이상의 생성자를 갖고 있어야한다.
+
+클래스는 최소한 한 가지 이상의 생성자를 갖고 있어야한다. 
 사용자가 생성자를 따로 작성하지 않는다면 기본 생성자 `ClassName(){ }`을 제공한다.
 
 그리고 이 생성자는 2개 이상 존재할 수 있고, 객체를 생성하는 방식에 따라서 각기 다른 생성자가 호출된다.
@@ -126,12 +127,12 @@ std3 : 마지막 생성자 코드부터 시작하여, 제일 위의 생성자 �
 `this()` 생성자를 이용해 코드를 간단하게 작성해보자. 이번 예제에서는 `Car` 클래스를 작성하고자 한다.
 우선 `Car` 클래스에는 멤버 변수로 다음을 갖는다.
 
-|접근제어자| 자료형 | 변수명      |
-|---|---|----------|
-|public|String| carType  |
-|public|int| carNumber |
+|접근제어자| 자료형 | 변수명          |
+|---|---|--------------|
+|public|String| carType      |
+|public|int| carNumber    |
 |public|int| carCondition |
-|public|String|customerName|
+|public|String| customerName |
 
 생성자는 모두 public 접근 제어자를 갖으며, 총 2개 존재한다. 
 1. 모든 멤버 변수에 대해 매개변수로 갖는다.
@@ -142,6 +143,54 @@ std3 : 마지막 생성자 코드부터 시작하여, 제일 위의 생성자 �
 
 </details> 
 
+<details>
+<summary>정답</summary>
+
+### **[코드]**
+
+```java
+package practice01;
+
+class practice01 {
+  public static void main(String[] args) {
+    Car car1 = new Car("small", 1111, 1, "Hantor");
+    Car car2 = new Car("mid", 1234, 2);
+
+    System.out.println(car1.toString() + "\n");
+    System.out.println(car2.toString());
+  }
+}
+
+class Car{
+
+  // TO DO : Write member variable
+  public String carType; // small, mid, large
+  public int carNumber; // 1000 ~ 9999
+  public int carCondition;   // 1 for good, 0 for bad.
+  public String customerName;
+  //
+  // TO DO : Make constructor with full parameters
+  public Car(String carType, int carNumber, int carCondition, String customerName) {
+    this.carType = carType;
+    this.carNumber = carNumber;
+    this.carCondition = carCondition;
+    this.customerName = customerName;
+  }
+  //
+  // TO DO : Make constructor using this() constructor with only carType, carNumber, carCondition 
+  public Car(String carType, int carNumber, int carCondition){
+    this(carType, carNumber, carCondition, "none");
+  }
+  //
+
+  public String toString() {
+    return "carType : " + this.carType + ", carNumber : " + this.carNumber +
+            ", carCondition : " + this.carCondition + ", customerName : " + this.customerName;
+  }
+}
+```
+
+</details>
 
 ## Practice 2 : static keyword (변수)
 
@@ -155,7 +204,7 @@ std3 : 마지막 생성자 코드부터 시작하여, 제일 위의 생성자 �
 - static keyword
 
     > Static 키워드를 통해 생성된 정적멤버들은 Heap영역이 아닌 Static영역에 할당됩니다.
-     Static 영역에 할당된 메모리는 모든 객체가 공유하여 하나의 멤버를 어디서든지 참조할 수 있는 장점을 가지지만
+    Static 영역에 할당된 메모리는 모든 객체가 공유하여 하나의 멤버를 어디서든지 참조할 수 있는 장점을 가지지만
     Garbage Collector의 관리 영역 밖에 존재하기에 Static영역에 있는 멤버들은 프로그램의 종료시까지 메모리가 할당된 채로 존재하게 됩니다.
     
     > 출처 : 코딩팩토리(https://coding-factory.tistory.com/524)
@@ -236,6 +285,64 @@ static이 붙은 멤버 변수(클래스 변수)의 경우에는 서로 다른 �
   orderNumber의 값을 출력한다.
 </details>
 
+<details>
+<summary>정답</summary>
+
+### **[코드]**
+
+```java
+public class Practice02 {
+	public static void main(String args[]) {
+		Shop[] shops = new Shop[5];
+		for(int a=0; a<3; a++) {
+			shops[a] = new Shop("한터 " + (a+1) +"호점", 10000 *(a + 1));
+		}
+		
+		shops[0].getOrder();	shops[0].getOrder();	shops[0].getOrder();
+		shops[1].getOrder();	shops[1].getOrder();
+		shops[2].getOrder();	
+		
+		for(int a=0; a<3; a++) {
+			shops[a].getInfo();
+		}
+		
+		// TO DO 1 : print orderNumber value
+		//System.out.println("Total orderNumber " + Shop.orderNumber);
+		//System.out.println("\nTotal orderNumber " + shops[0].orderNumber);
+        System.out.println("\nTotal orderNumber " + (TODO));
+		//
+	}
+}
+
+class Shop{
+	public String name;
+	static int orderNumber = 0;
+	public int price;
+	public int income = 0;
+	
+	public Shop(String name, int price) {
+		this.name = name;
+		this.price = price;
+	}
+	
+	// TO DO 2 : make getOrder Method
+	public void getOrder() {
+		orderNumber++;
+		this.income += price;
+	}
+	//
+	
+	public void getInfo() {
+		System.out.println("\nSHOP NAME : " + this.name);
+		System.out.println("MENU PRICE : " + this.price);
+		System.out.println("SHOP INCOME : " + this.income);
+	}
+}
+
+```
+
+</details>
+
 
 
 ## Practice 3 : 클래스 간의 관계 (포함)
@@ -293,11 +400,67 @@ Account 클래스를 작성하고자 한다. Account 클래스의 구성요소�
 | 접근제어자   | 자료형    | 변수명        | 설명                   |
 |---|--------|---|---|
 | private | String | name | 고객의 이름을 담는 멤버변수이다.|
-|private | String | phoneNumber | 고객의 핸드폰 번호를 담는 멤버변수이다. |
+|private | int    | phoneNumber | 고객의 핸드폰 번호를 담는 멤버변수이다. |
 
 
 </details>
 
+<details>
+<summary>정답</summary>
+
+### **[코드]**
+
+```java
+package Practice03;
+
+public class Practice03{
+  public static void main(String[] args) {
+    Customer cus = new Customer("README", "010-1111-2222");
+    Account acc = new Account(1234, "Hantor", cus);
+    acc.showInfo();
+  }
+}
+
+class Account {
+  // TO DO : Write member variable
+  private int AccountNum;
+  private String bankName;
+  private Customer customer;
+  //
+
+  public Account(int AccountNum, String bankName, Customer customer) {
+    this.AccountNum = AccountNum;
+    this.bankName = bankName;
+    this.customer = customer;
+  }
+
+  public void showInfo(){
+    System.out.println("AccountNum : " + this.AccountNum);
+    System.out.println("bankName : " + this.bankName);
+    System.out.println("customer " + this.customer);
+  }
+}
+
+class Customer {
+  // TO DO : Write member variable
+  private String name;
+  private String phoneNumber;
+  //
+
+  public Customer(String name, String phoneNumber) {
+    this.name = name;
+    this.phoneNumber = phoneNumber;
+  }
+
+  public String toString() {
+    return "name : " + this.name + ", phoneNumber : " + this.phoneNumber;
+  }
+}
+
+
+```
+
+</details>
 
 ## Practice 4 : 클래스 간의 관계 (상속)
 
@@ -461,5 +624,72 @@ public class Dog {
 ```
 다음의 코드에서 공통부를 추출하여 조상클래스로 작성할 것이다. 조상 클래스를 처음으로 작성하기 때문에,
 이번 실습 과제에서는 조상 클래스와 자손 클래스의 생성자에 대해서 스켈레톤 코드로 제공할 것이다. 
+
+</details>
+
+<details>
+<summary>정답</summary>
+
+### **[코드]**
+
+```java
+class Animal {
+    // TO DO : 멤버 변수 중 공통부 작성하기
+	public String name;     // 공통부 1
+	public int age;         // 공통부 2
+	public int hungry;      // 공통부 3
+    //
+	
+	public Animal(String name, int age) {
+		this.name = name;   // 생성자 공통부 1
+		this.age = age;     // 생성자 공통부 2
+	}
+	
+    // TO DO : 메소드들 중에 공통부 작성하기
+	public void feed() {    // 공통부 4
+		this.hungry++;
+	}
+    //
+
+}
+
+class Dog extends Animal{
+
+    // TO DO: 공통부가 아닌 멤버 변수는 따로 작성한다.
+	private int tail_length; 
+	//
+  
+	public Dog(String name, int age, int tail_length) {
+		super(name, age);       // 조상 클래스의 생성자로 매개변수 전달
+		this.tail_length = tail_length; // 자손 클래스의 멤버 변수에 값 할당
+	}
+    
+    // TO DO: 공통부가 아닌 부분은 따로 작성한다.
+	public void Crying() {
+		System.out.println("멍멍");
+		this.hungry--;
+	}
+    //
+}
+
+class Cat extends Animal{
+	
+    // TO DO: 공통부가 아닌 멤버 변수는 따로 작성한다.
+	private int claw_length;
+    //
+	
+	public Cat(String name, int age, int claw_length) {
+		super(name, age);       // 조상 클래스의 생성자로 매개변수 전달
+		this.claw_length = claw_length; // 자손 클래스의 멤버 변수에 값 할당
+	}
+
+    // TO DO: 공통부가 아닌 부분은 따로 작성한다.
+	public void Crying() {      
+		System.out.println("야옹");
+		this.hungry--;
+	}
+    //
+}
+```
 
 </details>
