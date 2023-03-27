@@ -342,13 +342,13 @@ class Shop{
 
 
 
-## Practice 3 : 클래스 간의 관계
+## Practice 3 : 클래스 간의 관계 (포함)
 
 
 <details>
 <summary>문제 설명</summary>
 
-### **[문제]** 오 이게 돼?
+### **[이론]**
 
 클래스 간의 관계는 간단하게 `상속` vs `포함`으로 구분할 수 있다.
 우선 이해하기 쉬운 `포함` 관계에 대해 먼저 설명하자면, 클래스의 멤버 변수로 다른 클래스가 들어가는 것을 의미한다.
@@ -378,7 +378,58 @@ Point라는 클래스(객체)를 Circle의 멤버변수로 이용하면서 Point
 Circle에서 Point 객체에 대해 접근하기 위해서는 위와 같이 . 을 통해 접근할 수 있다. 하지만 이후의 과정에서는 이렇게 . 을
 통해서 접하는 방식보다는 값을 설정하는 메서드를 이용하여 접근하는 것이 일반적이다.
 
-그럼 이제 `상속`에 대해서 간단하게 정리하면 다음과 같다.
+### **[문제]** Account 클래스 작성하기
+
+### **[설명]** 
+
+Account 클래스를 작성하고자 한다. Account 클래스의 구성요소는 다음과 같다.
+
+- Account 클래스의 멤버변수
+
+| 접근제어자   | 자료형    | 변수명        | 설명                             |
+|---------|--------|------------|--------------------------------|
+| private | int    | AccountNum | 계좌번호를 담는 인스턴스형 멤버변수이다.         |     
+| private | String | bankName   | 해당 계좌의 은행 이름을 담는 인스턴스형 멤버변수이다. |
+| private | Customer 클래스 | customer   | 계좌 주인의 정보를 담는 Customer 클래스를 멤버변수로 이용한다.|
+
+- Customer 클래스의 멤버변수
+
+| 접근제어자   | 자료형    | 변수명        | 설명                   |
+|---|--------|---|---|
+| private | String | name | 고객의 이름을 담는 멤버변수이다.|
+|private | int    | phoneNumber | 고객의 핸드폰 번호를 담는 멤버변수이다. |
+
+
+</details>
+
+<details>
+<summary>정답</summary>
+
+### **[코드]**
+
+```java
+class Account {
+    private int AccountNum;
+    private String bankName;
+    private Customer customer;
+}
+
+class Customer { 
+    private String name;
+    private int phoneNumber;
+}
+
+```
+
+</details>
+
+## Practice 4 : 클래스 간의 관계 (상속)
+
+<details>
+<summary>문제 설명</summary>
+
+### **[이론]** 
+`상속`에 대해서 간단하게 정리하면 다음과 같다.
 1. 상속이란 기존의 클래스를 재사용해서 새로운 클래스를 작성하는 것을 의미한다.
 2. 새롭게 작성한 클래스에 대해서 조상과 자손으로 관계를 맺어준다.
 3. 자손은 생성자와 초기화 블럭을 제외한 모든 멤버를 상속받는다.
@@ -388,59 +439,58 @@ Circle에서 Point 객체에 대해 접근하기 위해서는 위와 같이 . �
 
 ```java
 class Tv {
-  String color;
-  boolean power;
-  int channel;
-
-  Tv(String color){
-    this.color = color;
-  }
-
-  void changePower() {
-    power = !power;
-  }
-
-  void channelUp() {
-    channel ++;
-  }
-
-  void channelDown() {
-    channel --;
-  }
+    String color;
+    boolean power;
+    int channel;
+    
+    Tv(String color){
+      this.color = color;
+    }
+    
+    void changePower() {
+      power = !power;
+    }
+    
+    void channelUp() {
+      channel ++;
+    }
+    
+    void channelDown() {
+      channel --;
+    }
 }
 
-
 class CaptionTv  {
-  String color;
-  boolean power;
-  int channel;
-  String language;
-  int fontSize;
+    String color;
+    boolean power;
+    int channel;
+    String language;
+    int fontSize;
+    
+    CaptionTv(String color, String language){
+        this.color = color;
+        this.language = language;
+    }
   
-  CaptionTv(String color, String language){
-      this.color = color;
-      this.language = language;
-  }
-
-  void changePower() {
-    power = !power;
-  }
-
-  void channelUp() {
-    channel ++;
-  }
-
-  void channelDown() {
-    channel --;
-  }
-
-  void fontSizeUp() {
-    fontSize ++;
-  }
-
-  void fontSizeDown() {
-    fontSize --;
-  }
+    void changePower() {
+      power = !power;
+    }
+  
+    void channelUp() {
+      channel ++;
+    }
+  
+    void channelDown() {
+      channel --;
+    }
+  
+    void fontSizeUp() {
+      fontSize ++;
+    }
+  
+    void fontSizeDown() {
+      fontSize --;
+    }
 }
 ```
 위의 두 코드를 잘 보면, 멤버 변수 color, power, channel과 changePower(), channelUp(), channelDown() 메서드가
@@ -474,54 +524,67 @@ class CaptionTv extends Tv {
 
 this() 생성자와 마찬가지로 super() 생성자는 생성자 코드의 가장 위에 위치해야한다. 
 
-
-
-### **[설명]** super
-
-</details>
-
-<details>
-<summary>정답</summary>
-
-### **[코드]**
-
-</details>
-
-## Practice 4 : 상속 응용
-
-
-<details>
-<summary>문제 설명</summary>
-
-### **[문제]**
-
-### **[설명]** super
-
-</details>
-
-<details>
-<summary>정답</summary>
-
-### **[코드]**
-
-</details>
-
-## Practice 5 : 다형성 (오버라이딩)
-
-<details>
-<summary>문제 설명</summary>
-
-### **[문제]** 다형성 (오버라이딩)
+### **[문제]** 고양이랑 강아지는 동물이다.
 
 ### **[설명]**
 
-우선 자바에서의 다형성 (Polymorphism)은 두 가지 의미를 갖는다.
-> 1) 한 타입의 참조 변수로 여러 타입의 객체를 참조할 수 있는 능력
-> 2) 하나의 객체나 메소드가 여러가지 다른 형태를 가질 수 있는 능력
+두 개의 클래스로부터 상속을 진행하고자 한다. 조상 클래스를 작성하는 것은 처음부터 작성을 하면서 자손 클래스에 세부 내용을
+정리하는 방식도 존재하지만, 이미 작성한 클래스들을 바탕으로 공통된 부분을 뽑아내서 조상 클래스를 작성하는 방식도 존재한다.
+간단한 코드에서는 두번째 방식으로 조상 클래스를 작성하는 경우가 많을 것이다.
 
-자바에서의 다형성에는 `오버로딩`, `오버라이딩`, `형변환`, `인터페이스`, `추상클래스` 등이 존재한다.
-이번 문제에서는 오버라이딩에 대해 다룰 예정이다.
+따라서 이번 실습 문제에서는 이미 작성되어 있는 클래스 2개에서 조상 클래스를 뽑아내는 과정을 진행할 것이다.
+제공 될 코드는 Dog 클래스와 Cat 클래스이다. 두 클래스에서 공통된 부분을 뽑아내어 조상 클래스로 설정하고, 이를 상속받아
+코드 작성을 최소화하는 과정을 진행할 것이다.
 
+```java
+
+public class Cat {
+  public String name;       // 공통부 1
+  public int age;           // 공통부 2
+  public int hungry;        // 공통부 3
+  public int claw_length;
+
+  public Cat(String name, int age, int claw_length) {
+    this.name = name;       // 생성자 공통부 1
+    this.age = age;         // 생성자 공통부 2
+    this.claw_length = claw_length;
+  }
+
+  public void feed() {      // 공통부 4
+    this.hungry++;
+  }
+
+  public void crying() {
+    System.out.println("멍멍");
+    this.hungry--;
+  }
+}
+
+
+public class Dog {
+  public String name;       // 공통부 1
+  public int age;           // 공통부 2
+  public int hungry;        // 공통부 3
+  public int tail_length;
+
+  public Dog(String name, int age, int tail_length) {
+    this.name = name;       // 생성자 공통부 1
+    this.age = age;         // 생성자 공통부 2
+    this.tail_length = tail_length;
+  }
+
+  public void feed() {      // 공통부 4
+    this.hungry++;
+  }
+
+  public void crying() {
+    System.out.println("멍멍");
+    this.hungry--;
+  }
+}
+```
+다음의 코드에서 공통부를 추출하여 조상클래스로 작성할 것이다. 조상 클래스를 처음으로 작성하기 때문에,
+이번 실습 과제에서는 조상 클래스와 자손 클래스의 생성자에 대해서 스켈레톤 코드로 제공할 것이다. 
 
 </details>
 
@@ -529,5 +592,65 @@ this() 생성자와 마찬가지로 super() 생성자는 생성자 코드의 가
 <summary>정답</summary>
 
 ### **[코드]**
+
+```java
+class Animal {
+    // TO DO : 멤버 변수 중 공통부 작성하기
+	public String name;     // 공통부 1
+	public int age;         // 공통부 2
+	public int hungry;      // 공통부 3
+    //
+	
+	public Animal(String name, int age) {
+		this.name = name;   // 생성자 공통부 1
+		this.age = age;     // 생성자 공통부 2
+	}
+	
+    // TO DO : 메소드들 중에 공통부 작성하기
+	public void feed() {    // 공통부 4
+		this.hungry++;
+	}
+    //
+
+}
+
+class Dog extends Animal{
+
+    // TO DO: 공통부가 아닌 멤버 변수는 따로 작성한다.
+	private int tail_length; 
+	//
+  
+	public Dog(String name, int age, int tail_length) {
+		super(name, age);       // 조상 클래스의 생성자로 매개변수 전달
+		this.tail_length = tail_length; // 자손 클래스의 멤버 변수에 값 할당
+	}
+    
+    // TO DO: 공통부가 아닌 부분은 따로 작성한다.
+	public void Crying() {
+		System.out.println("멍멍");
+		this.hungry--;
+	}
+    //
+}
+
+class Cat extends Animal{
+	
+    // TO DO: 공통부가 아닌 멤버 변수는 따로 작성한다.
+	private int claw_length;
+    //
+	
+	public Cat(String name, int age, int claw_length) {
+		super(name, age);       // 조상 클래스의 생성자로 매개변수 전달
+		this.claw_length = claw_length; // 자손 클래스의 멤버 변수에 값 할당
+	}
+
+    // TO DO: 공통부가 아닌 부분은 따로 작성한다.
+	public void Crying() {      
+		System.out.println("야옹");
+		this.hungry--;
+	}
+    //
+}
+```
 
 </details>
