@@ -1,30 +1,91 @@
-## Practice 1 : 다형성 (오버라이딩)
+## Practice 1 : 클래스 상속 예제 1
 
 <details>
 <summary>문제 설명</summary>
 
-### **[문제]** 다형성 (오버라이딩)
+### **[문제]** 조상 클래스 뽑아내기
 
 ### **[설명]**
 
-우선 자바에서의 다형성 (Polymorphism)은 두 가지 의미를 갖는다.
-> 1) 한 타입의 참조 변수로 여러 타입의 객체를 참조할 수 있는 능력
-> 2) 하나의 객체나 메소드가 여러가지 다른 형태를 가질 수 있는 능력
+다음과 같은 클래스들이 있다. <br>
+```java
+class Marine {
+	int x, y;
+	void move(int x, int y) { /* 지정된 위치로 이동 */ }
+	void stop() { /* 현재 위치에 정지 */ }
+	
+	void stimPack() { /* 스팀팩을 사용한다. */ }
+}
 
-자바에서의 다형성에는 `오버로딩`, `오버라이딩`, `형변환`, `인터페이스`, `추상클래스` 등이 존재한다.
-이번 문제에서는 오버라이딩에 대해 다룰 예정이다.
+class Tank {
+	int x, y;
+	void move(int x, int y) { /* 지정된 위치로 이동 */ }
+	void stop() { /* 현재 위치에 정지 */ }
+	
+	void changeMode() { /* 공격모드를 변환한다. */ }
+}
 
+class Dropship {
+	int x, y; 
+	void move(int x, int y) { /* 지정된 위치로 이동 */ }
+	void stop() { /* 현재 위치에 정지 */ }
+	
+	void load() { /* 선택된 대상을 태운다. */ }
+	void unload() { /* 선택된 대상을 내린다. */ }
+}
+```
+3개의 클래스에서 공통된 부분을 뽑아내어 조상 클래스 `Unit`를 만들어보자. <br>
+그리고 조상 클래스를 상속받아 각 클래스를 만들어보자. <br>
+Test seems Correct가 출력되는 경우 정답이다. <br>
+
+<span style="color:red"> HINT : 공통된 부분만 빼내면 된다. </span>
 
 </details>
 
 <details>
 <summary>정답</summary>
 
+```java
+package practice03;
+
+public class Practice03 {
+	public static void main(String args[]) {
+		Unit unit = new Unit();
+		unit.move(1,1);
+		unit.stop();
+		System.out.println("Test seems Correct");
+	}
+}
+
+class Unit {
+	int x, y;
+	
+	void move(int x, int y) { /* 지정된 위치로 이동 */ }
+	void stop() { /* 현재 위치에 정지 */ }
+}
+
+class Marine extends Unit {
+	
+	void stimPack() { /* 스팀팩을 사용한다. */ }
+}
+
+class Tank extends Unit {
+	
+	void changeMode() { /* 공격모드를 변환한다. */ }
+}
+
+class Dropship extends Unit {
+	
+	void load() { /* 선택된 대상을 태운다. */ }
+	void unload() { /* 선택된 대상을 내린다. */ }
+}
+```
+
 ### **[코드]**
 
 </details>
 
-## Practice 2 : 클래스 상속 예제 1
+## Practice 2 : 클래스 상속 예제 2
 
 <details>
 <summary>문제 설명</summary>
@@ -300,5 +361,31 @@ class Owner {
     }
 }
 ```
+
+</details>
+
+## Practice 4 : 다형성 (오버라이딩)
+
+<details>
+<summary>문제 설명</summary>
+
+### **[문제]** 다형성 (오버라이딩)
+
+### **[설명]**
+
+우선 자바에서의 다형성 (Polymorphism)은 두 가지 의미를 갖는다.
+> 1) 한 타입의 참조 변수로 여러 타입의 객체를 참조할 수 있는 능력
+> 2) 하나의 객체나 메소드가 여러가지 다른 형태를 가질 수 있는 능력
+
+자바에서의 다형성에는 `오버로딩`, `오버라이딩`, `형변환`, `인터페이스`, `추상클래스` 등이 존재한다.
+이번 문제에서는 오버라이딩에 대해 다룰 예정이다.
+
+
+</details>
+
+<details>
+<summary>정답</summary>
+
+### **[코드]**
 
 </details>
