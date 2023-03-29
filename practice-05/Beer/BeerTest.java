@@ -1,3 +1,5 @@
+package Beer;
+
 class Beer {
 
 }
