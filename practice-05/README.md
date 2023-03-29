@@ -227,7 +227,7 @@ Beer 클래스를 상속받을 두 클래스를 만들어봅시다
   - Hoegaarden 클래스는 조상 클래스의 메서드와 더불어 1개의 추가적인 메서드를 갖는다.
   - Hoegaarden 클래스는 조상 클래스의 `drink()` 메서드를 오버라이딩한다.
   - `drink()` : 반환타입 void, 출력 예시 - `flavor`맛 `model`을 마십니다.
-  - `getFlavor()` : 반환타입 void, 출력 예시 - `model`의 맛 : `model`
+  - `getFlavor()` : 반환타입 void, 출력 예시 - `model`의 맛 : `flavor`
 
 </details>
 
