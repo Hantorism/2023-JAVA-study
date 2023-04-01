@@ -1,9 +1,7 @@
-## Practice 1 : 조상 클래스의 참조변수 활용
+## Practice 1 : 조상 클래스의 참조변수 활용 이론
 
 <details>
-<summary>문제 설명</summary>
-
-### **[문제]** 배열의 참조 변수 : 조상 클래스, 배열의 요소 : 자손 클래스
+<summary>이론 설명</summary>
 
 ### **[이론]**
 1. `조상 클래스의 참조변수`를 이용해서 `자손 클래스의 인스턴스`를 참조할 수 있다.
@@ -85,6 +83,16 @@
     }
     
     ```
+
+</details>
+
+<br><br>
+
+## Practice 2 : 조상 클래스의 참조변수 활용 문제
+
+<details>
+<summary>문제 설명</summary>
+
 ### **[문제]** 도형을 담는 배열
 다음과 같은 도형 클래스가 있다.
 
@@ -98,7 +106,7 @@ Shape 클래스의 참조변수를 사용하여 Rectangle과 Circle 클래스의
 
 #### TODO 2
 배열의 각 요소(배열의 모든 요소)에 저장된 도형의 넓이를 출력하는 printArea() 메소드를 호출한다. <br>
-    
+
 
 
 <span style="color:red"> HINT : 공통된 부분만 빼내면 된다. </span>
@@ -109,19 +117,71 @@ Shape 클래스의 참조변수를 사용하여 Rectangle과 Circle 클래스의
 <summary>정답</summary>
 
 ```java
+// 조상 클래스
+class Shape {
+   double area;
+
+   void printArea() {
+      System.out.println("Area: " + area);
+   }
+}
+
+// 자손 클래스 1
+class Rectangle extends Shape {
+   double width;
+   double height;
+
+   Rectangle(double width, double height) {
+      this.width = width;
+      this.height = height;
+      calculateArea();
+   }
+
+   void calculateArea() {
+      area = width * height;
+   }
+}
+
+// 자손 클래스 2
+class Circle extends Shape {
+   double radius;
+
+   Circle(double radius) {
+      this.radius = radius;
+      calculateArea();
+   }
+
+   void calculateArea() {
+      area = Math.PI * radius * radius;
+   }
+}
+
+// Main 클래스
+public class Practice02 {
+   public static void main(String[] args) {
+// 조상 클래스 참조변수를 이용한 배열 생성
+      Shape[] shapes = new Shape[2];
+
+      // TO DO 1: 자손 클래스 인스턴스를 생성하고 배열에 저장하자. 
+      shapes[0] = new Rectangle(4, 5);    // index 0에 Rectangle 인스턴스 저장
+      shapes[1] = new Circle(3);          // index 1에 Circle 인스턴스 저장
+
+      // TO DO 2: 배열의 각 요소에 대해 printArea() 메소드 호출
+      for (Shape shape : shapes) {
+         shape.printArea();
+      }
+   }
+}
 
 ```
 
 </details>
-
 <br><br>
 
-## Practice 2 : Overriding(오버라이딩)
+## Practice 3 : Overriding(오버라이딩) 이론
 
 <details>
-<summary>문제 설명</summary>
-
-### **[문제]** Overriding
+<summary>이론 설명</summary>
 
 ### **[이론]** 
 
@@ -166,13 +226,37 @@ UpperClass test : LowerClass <br>
 자손 클래스에서 재정의한 메서드가 호출된다. (출력결과 세번째 줄)<br>
 
 
+</details>
+<br><br>
+
+
+## Practice 4 : Overriding(오버라이딩) 문제
+
+<details>
+<summary>문제 설명</summary>
+
+### **[문제]** Overriding
+
 ### **[설명]**
 
-```java
+이 코드는 `Bike` 클래스와 `Car` 클래스는 `Vehicle` 클래스를 상속받는다. <br>
+이 과정 중에서 overriding을 통해 `display()` 메서드를 재정의해두었다. <br>
 
-```
+이번 과제에서는 이미 만들어져 있는 크기 3인 vehicles 배열에 각각의 인스턴스를 넣고, <br>
+for문을 통해 각각의 인스턴스의 display() 메서드를 호출한다. <br>
 
-<span style="color:red"> HINT : 공통된 부분만 빼내면 된다. </span>
+**TODO 1 : vehicles 배열을 조건에 맞게 채우시오.**
+   1. 첫 번째 인덱스에는 Vehicle 클래스의 인스턴스를 넣는다.
+   2. 두 번째 인덱스에는 Bike 클래스의 인스턴스를 넣는다.
+   3. 세 번째 인덱스에는 Car 클래스의 인스턴스를 넣는다.
+
+**TODO 2 : for문을 통해 vehicles 배열의 각 인덱스에 있는 인스턴스의 display() 메서드를 호출하시오.**
+
+
+출력 결과 : <br>
+This is a vehicle. <br>
+This is a bike. <br>
+This is a car. <br>
 
 </details>
 
@@ -181,6 +265,8 @@ UpperClass test : LowerClass <br>
 
 ```java
 // Superclass
+package practice04;
+
 class Vehicle {
     void display() {
         System.out.println("This is a vehicle.");
@@ -189,25 +275,25 @@ class Vehicle {
 
 // Subclass 1
 class Car extends Vehicle {
-@Override
-void display() {
-System.out.println("This is a car.");
-}
+      @Override
+      void display() {
+        System.out.println("This is a car.");
+   }
 }
 
 // Subclass 2
 class Bike extends Vehicle {
-@Override
-void display() {
-System.out.println("This is a bike.");
-}
+      @Override
+      void display() {
+          System.out.println("This is a bike.");
+      }
 }
 
 // Main class
-public class Main {
-public static void main(String[] args) {
-// Create an array of Vehicle type (superclass)
-Vehicle[] vehicles = new Vehicle[4];
+public class Practice04 {
+   public static void main(String[] args) {
+         // Create an array of Vehicle type (superclass)
+         Vehicle[] vehicles = new Vehicle[3];
 
         // TO DO 1: Store instances to vehicles array, 0 : Vehicle, 1 : Car, 2 : Bike.
         vehicles[0] = new Vehicle();
@@ -216,103 +302,20 @@ Vehicle[] vehicles = new Vehicle[4];
 
         // TO DO 2: Call the display() method on each element in the array.
         for (Vehicle vehicle : vehicles) {
-            vehicle.display();
+           vehicle.display();
         }
-    }
+   }
 }
 
 ```
 
-출력 결과 : <br>
+
 </details>
+
 
 <br><br>
 
-## Practice 3 : Overriding(오버라이딩) 2 
-
-<details>
-<summary>문제 설명</summary>
-
-### **[문제]**
-
-### **[설명]**
-
-
-
-<span style="color:red"> HINT : 공통된 부분만 빼내면 된다. </span>
-
-</details>
-   
-<details>
-<summary>정답</summary>
-
-```java
-// 조상 클래스
-class Shape {
-double area;
-
-    void printArea() {
-        System.out.println("Area: " + area);
-    }
-}
-
-// 자손 클래스 1
-class Rectangle extends Shape {
-double width;
-double height;
-
-    Rectangle(double width, double height) {
-        this.width = width;
-        this.height = height;
-        calculateArea();
-    }
-
-    void calculateArea() {
-        area = width * height;
-    }
-}
-
-// 자손 클래스 2
-class Circle extends Shape {
-double radius;
-
-    Circle(double radius) {
-        this.radius = radius;
-        calculateArea();
-    }
-
-    void calculateArea() {
-        area = Math.PI * radius * radius;
-    }
-}
-
-// Main 클래스
-public class Main {
-public static void main(String[] args) {
-// 조상 클래스 참조변수를 이용한 배열 생성
-Shape[] shapes = new Shape[2];
-
-        // TO DO 1: 자손 클래스 인스턴스를 생성하고 배열에 저장하자. 
-        shapes[0] = new Rectangle(4, 5);    // index 0에 Rectangle 인스턴스 저장
-        shapes[1] = new Circle(3);          // index 1에 Circle 인스턴스 저장
-
-        // TO DO 2: 배열의 각 요소에 대해 printArea() 메소드 호출
-        for (Shape shape : shapes) {
-            shape.printArea();
-        }
-    }
-}
-    
-```
-
-</details>
-
-<br><br>
-
-
-
-
-## Practice 3 : Abstract Class
+## Practice 5 : Abstract Class
 
 <details>
 <summary>문제 설명</summary>
@@ -339,7 +342,7 @@ Shape[] shapes = new Shape[2];
 
 <br><br>
 
-## Practice 4 : Interface 1
+## Practice 6 : Interface 1
 
 <details>
 <summary>문제 설명</summary>
@@ -365,7 +368,7 @@ Shape[] shapes = new Shape[2];
 
 <br><br>
 
-## Practice 5 : Interface 2
+## Practice 7 : Interface 2
 
 <details>
 <summary>문제 설명</summary>
