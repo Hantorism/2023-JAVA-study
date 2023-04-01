@@ -107,10 +107,6 @@ Shape 클래스의 참조변수를 사용하여 Rectangle과 Circle 클래스의
 #### TODO 2
 배열의 각 요소(배열의 모든 요소)에 저장된 도형의 넓이를 출력하는 printArea() 메소드를 호출한다. <br>
 
-
-
-<span style="color:red"> HINT : 공통된 부분만 빼내면 된다. </span>
-
 </details>
 
 <details>
@@ -315,30 +311,163 @@ public class Practice04 {
 
 <br><br>
 
-## Practice 5 : Abstract Class
+## Practice 5 : Abstract Class 이론
 
 <details>
 <summary>문제 설명</summary>
 
-### **[문제]** 
+### **[이론]**
+
+- `Abstract` 클래스 (추상 클래스)란?
+
+   완전하지 않은 클래스로, 하나 이상의 추상 메소드(구현되지 않은 메소드)를 포함한다.
+   추상 클래스는 객체를 생성할 수 없으며, 다른 클래스가 상속받아 구현해야 한다. 
+   추상 클래스의 목적은 공통적인 기능을 상속받아 사용하고, 필요한 기능을 자식 클래스에서 구현하도록 하는 것이다.
+
+- 추상 클래스 규칙
+  1. abstract 키워드를 사용하여 추상 클래스를 선언합니다.
+  2. 추상 클래스는 하나 이상의 추상 메소드를 포함할 수 있습니다. 추상 메소드는 선언부만 있고 구현부가 없는 메소드입니다.
+  3. 추상 클래스를 상속받은 클래스는 반드시 추상 클래스의 추상 메소드를 구현해야 합니다. 만약 구현하지 않으면 해당 클래스도 추상 클래스로 선언해야 합니다.
+
+- 추상 클래스 사용 예시
+   
+   ```java
+   // 추상 클래스
+   abstract class Animal {
+       abstract void makeSound(); // 추상 메소드
+   
+       void displayInfo() { // 일반 메소드
+           System.out.println("This is an animal.");
+       }
+   }
+   
+   // 구체 클래스 1
+   class Dog extends Animal {
+       @Override
+       void makeSound() { // 추상 메소드 구현
+           System.out.println("Woof!");
+       }
+   }
+   
+   // 구체 클래스 2
+   class Cat extends Animal {
+       @Override
+       void makeSound() { // 추상 메소드 구현
+           System.out.println("Meow!");
+       }
+   }
+   
+   // Main 클래스
+   public class Main {
+      public static void main(String[] args) {
+         // 객체 생성
+         Dog dog = new Dog();
+         Cat cat = new Cat();
+   
+         // 구체 클래스에서 구현된 메소드 호출
+         dog.makeSound(); // 출력: Woof!
+         cat.makeSound(); // 출력: Meow!
+   
+         // 추상 클래스의 일반 메소드 호출
+         dog.displayInfo(); // 출력: This is an animal.
+         cat.displayInfo(); // 출력: This is an animal.
+      }
+   }
+   ```
+  
+</details>
+
+<br><br>
+
+## Practice 6 : Abstract Class 문제
+
+<details>
+<summary>문제 설명</summary>
+
+### **[문제]** 추상 클래스 Vehicle
 
 ### **[설명]**
 
+코드는 추상 클래스 Vehicle을 상속받은 Car 클래스와 Bicycle 클래스를 구현하였다. <br>
+추상 클래스 Vehicle에는 추상 메소드 start()와 stop()이 있고, 일반 메소드 displayInfo()가 있다. <br>
+Car 클래스와 Bicycle 클래스는 추상 메소드 start()와 stop()을 구현하고 있다. <br>
 
-```java
-
-```
-
-
-<span style="color:red"> HINT : 공통된 부분만 빼내면 된다. </span>
+- **TODO 부분을 채워서 코드를 완성해보자.**
+   
+   모든 추상 메서드들에 대해 상속받는 클래스가 구현해야 한다. 구현하는 과정에 있어서, <br>
+   @Override 어노테이션을 사용하면 오버라이딩을 하고 있다는 것을 명시적으로 표현할 수 있다. <br>
+   추가로 구현하는 추상 메서드에 대해 매개변수, 리턴 타입, 접근 제한자 등을 완전히 동일하게 구현해야 한다. <br>
 
 </details>
 
 <details>
 <summary>정답</summary>
 
-</details>
+```java
+// 추상 클래스
+abstract class Vehicle {
+    abstract void start(); // 추상 메소드
+    abstract void stop(); // 추상 메소드
 
+    void displayInfo() { // 일반 메소드
+        System.out.println("This is a vehicle.");
+    }
+}
+
+// 구체 클래스 1
+class Car extends Vehicle {
+    // 여기 참고해서 구현해보세요!
+    @Override
+    void start() {
+        System.out.println("Car starts.");
+    }
+
+    // TO DO : 추상 메서드인 stop() 메소드 구현
+    // 기능 : "Car stops." 출력
+    @Override
+    void stop() {
+        System.out.println("Car stops.");
+    }
+   //
+}
+
+// 구체 클래스 2
+class Bicycle extends Vehicle {
+    // TO DO : 추상 메서드인 start() 메소드, stop() 메소드 구현
+    // 기능 : "Bicycle starts." 출력, "Bicycle stops." 출력
+    @Override
+    void start() {
+        System.out.println("Bicycle starts.");
+    }
+
+    @Override
+    void stop() {
+        System.out.println("Bicycle stops.");
+    }
+    //
+}
+
+// Main 클래스
+public class Main {
+    public static void main(String[] args) {
+        // 객체 생성
+        Car car = new Car();
+        Bicycle bicycle = new Bicycle();
+
+        // 구체 클래스에서 구현된 메소드 호출
+        car.start(); // 출력: Car starts.
+        car.stop(); // 출력: Car stops.
+        bicycle.start(); // 출력: Bicycle starts.
+        bicycle.stop(); // 출력: Bicycle stops.
+
+        // 추상 클래스
+        car.displayInfo(); // 출력: This is a vehicle.
+        bicycle.displayInfo(); // 출력: This is a vehicle.
+    }
+}
+```
+
+</details>
 
 <br><br>
 
@@ -382,8 +511,6 @@ public class Practice04 {
 
 ```
 
-
-<span style="color:red"> HINT : 공통된 부분만 빼내면 된다. </span>
 
 </details>
 
