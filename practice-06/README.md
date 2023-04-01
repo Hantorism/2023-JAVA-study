@@ -1,0 +1,390 @@
+## Practice 1 : 조상 클래스의 참조변수 활용
+
+<details>
+<summary>문제 설명</summary>
+
+### **[문제]** 배열의 참조 변수 : 조상 클래스, 배열의 요소 : 자손 클래스
+
+### **[이론]**
+1. `조상 클래스의 참조변수`를 이용해서 `자손 클래스의 인스턴스`를 참조할 수 있다.
+   하지만 조상 클래스의 참조변수로는 자손 클래스의 멤버에 접근할 수 없다.<br>
+   **Example** : 조상 클래스의 참조변수로 자손 클래스의 멤버에 접근 불가.
+    ```java
+   class UpperClass {
+       int a;
+       void methodA() {
+           System.out.println("UpperClass methodA()");
+       }
+   }
+    class LowerClass extends UpperClass {
+        int b;
+        void methodB() {
+            System.out.println("LowerClass methodB()");
+        }
+    }
+   public class test {
+       public static void main(String[] args) {
+           UpperClass up = new LowerClass();
+           up.methodA();
+           up.methodB(); // error
+       }
+   }
+   ```
+2. 조상 클래스를 상속받는 자손 클래스들을 하나의 배열에 담고 싶다면, 다음과 같은 과정으로 가능하다.
+    1. `조상 클래스의 참조변수`를 이용해서 배열을 생성한다.
+    2. `자손 클래스의 인스턴스`를 생성해서 조상 클래스의 참조변수에 대입한다.
+    3. `조상 클래스의 참조변수`를 이용해서 배열의 요소에 접근한다.
+    <br> 이때, 조상 클래스의 참조변수로는 자손 클래스의 멤버에 접근할 수 없다. -> 주석 참고
+    ```java
+    class UpperClass {
+         public int a;
+         void methodA() {
+              System.out.println("UpperClass methodA()");
+         }
+         UpperClass() {
+             a = 10;
+         }
+    }
+    
+    class LowerClassA extends UpperClass {
+        public int b;
+        LowerClassA() {
+            a = 10;
+            b = 20;
+        }
+    }
+    class LowerClassB extends UpperClass {
+        public int c;
+        LowerClassB() {
+            a = 30;
+            c = 40;
+        }
+    } 
+    public class test {
+       public static void main(String[] args) {
+           UpperClass[] arr = new UpperClass[3];
+           arr[0] = new UpperClass();
+           arr[1] = new LowerClassA();
+           arr[2] = new LowerClassB();
+    
+           for(int i = 0; i < arr.length; i++) {
+                arr[i].methodA();
+           }
+           arr[0].a = 100; // not error
+           arr[1].a = 200; // not error
+           arr[2].a = 300; // not error
+           
+           arr[0].b = 100; // error
+           arr[1].b = 200; // not error
+           arr[2].b = 300; // error
+           
+           arr[0].c = 100; // error
+           arr[1].c = 200; // error
+           arr[2].c = 300; // not error
+       }
+    }
+    
+    ```
+### **[문제]** 도형을 담는 배열
+다음과 같은 도형 클래스가 있다.
+
+Shape 클래스 (조상 클래스): 도형의 넓이를 출력하는 printArea() 메소드를 포함한다. <br>
+Rectangle 클래스 (자손 클래스1): 사각형의 가로와 세로를 가지며, 넓이를 계산하는 calculateArea() 메소드를 포함한다. <br>
+Circle 클래스 (자손 클래스2): 원의 반지름을 가지며, 넓이를 계산하는 calculateArea() 메소드를 포함한다. <br>
+
+#### TODO 1
+Shape 클래스의 참조변수를 사용하여 Rectangle과 Circle 클래스의 인스턴스를 저장하는 배열을 만들어 보자. <br>
+**0번째 요소**에는 `Rectangle` 인스턴스를, **1번째 요소**에는 `Circle` 인스턴스를 저장한다. <br>
+
+#### TODO 2
+배열의 각 요소(배열의 모든 요소)에 저장된 도형의 넓이를 출력하는 printArea() 메소드를 호출한다. <br>
+    
+
+
+<span style="color:red"> HINT : 공통된 부분만 빼내면 된다. </span>
+
+</details>
+
+<details>
+<summary>정답</summary>
+
+```java
+
+```
+
+</details>
+
+<br><br>
+
+## Practice 2 : Overriding(오버라이딩)
+
+<details>
+<summary>문제 설명</summary>
+
+### **[문제]** Overriding
+
+### **[이론]** 
+
+ **오버라이딩**이란 상속 관계에 있는 `조상 클래스의 메서드`를 `자손 클래스`에서 재정의하는 것을 말한다.
+오버라이딩을 통해 조상 클래스의 메서드를 자손 클래스에서 재정의하면, 자손 클래스의 인스턴스를 생성하여 해당 메서드를 호출하면 자손 클래스에서 재정의한 메서드가 호출된다.
+재정의 하는 방법으로는 조상 클래스의 메서드와 동일한 메서드(메서드명, 매개변수, 반환타입 일치)를 자손 클래스에 정의하면 된다.
+그리고 메서드 앞에 `@Override` 어노테이션을 붙여주면 오버라이딩을 했는지를 컴파일러가 체크해준다.
+
+해당 내용을 코드로 구현하면 다음과 같다.
+```java
+class UpperClass {
+    void methodA() {
+        System.out.println("UpperClass methodA()");
+    }
+}
+class LowerClass extends UpperClass {
+    @Override
+    void methodA() {
+        System.out.println("LowerClass methodA()");
+    }
+}
+public class test {
+    public static void main(String[] args) {
+        UpperClass upper = new UpperClass(); // 조상 클래스 참조변수, 조상 클래스 인스턴스
+        LowerClass lower = new LowerClass(); // 자손 클래스 참조변수, 자손 클래스 인스턴스
+        UpperClass test = new LowerClass(); // 조상 클래스 참조변수, 자손 클래스 인스턴스
+     // LowerClass err = new UpperClass(); // 자손 클래스 참조변수, 조상 클래스 인스턴스 (X)  
+        upper.methodA(); // UpperClass methodA()
+        lower.methodA(); // LowerClass methodA()
+        test.methodA(); // LowerClass methodA()
+    }
+}
+```
+출력 결과 : <br>
+UpperClass upper : UpperClass <br>
+LowerClass lower : LowerClass <br>
+UpperClass test : LowerClass <br>
+
+조상 클래스의 참조변수는 조상 클래스의 인스턴스를 참조할 수 있고,(출력결과 첫번째 줄)<br>
+자손 클래스의 참조변수는 자손 클래스의 인스턴스를 참조할 수 있다.(출력결과 두번째 줄)<br>
+추가로 Overriding을 통해 재정의한 메서드는 조상 클래스의 참조변수로 자손 클래스의 인스턴스를 참조할 경우에는 
+자손 클래스에서 재정의한 메서드가 호출된다. (출력결과 세번째 줄)<br>
+
+
+### **[설명]**
+
+```java
+
+```
+
+<span style="color:red"> HINT : 공통된 부분만 빼내면 된다. </span>
+
+</details>
+
+<details>
+<summary>정답</summary>
+
+```java
+// Superclass
+class Vehicle {
+    void display() {
+        System.out.println("This is a vehicle.");
+    }
+}
+
+// Subclass 1
+class Car extends Vehicle {
+@Override
+void display() {
+System.out.println("This is a car.");
+}
+}
+
+// Subclass 2
+class Bike extends Vehicle {
+@Override
+void display() {
+System.out.println("This is a bike.");
+}
+}
+
+// Main class
+public class Main {
+public static void main(String[] args) {
+// Create an array of Vehicle type (superclass)
+Vehicle[] vehicles = new Vehicle[4];
+
+        // TO DO 1: Store instances to vehicles array, 0 : Vehicle, 1 : Car, 2 : Bike.
+        vehicles[0] = new Vehicle();
+        vehicles[1] = new Bike();
+        vehicles[2] = new Car();
+
+        // TO DO 2: Call the display() method on each element in the array.
+        for (Vehicle vehicle : vehicles) {
+            vehicle.display();
+        }
+    }
+}
+
+```
+
+출력 결과 : <br>
+</details>
+
+<br><br>
+
+## Practice 3 : Overriding(오버라이딩) 2 
+
+<details>
+<summary>문제 설명</summary>
+
+### **[문제]**
+
+### **[설명]**
+
+
+
+<span style="color:red"> HINT : 공통된 부분만 빼내면 된다. </span>
+
+</details>
+   
+<details>
+<summary>정답</summary>
+
+```java
+// 조상 클래스
+class Shape {
+double area;
+
+    void printArea() {
+        System.out.println("Area: " + area);
+    }
+}
+
+// 자손 클래스 1
+class Rectangle extends Shape {
+double width;
+double height;
+
+    Rectangle(double width, double height) {
+        this.width = width;
+        this.height = height;
+        calculateArea();
+    }
+
+    void calculateArea() {
+        area = width * height;
+    }
+}
+
+// 자손 클래스 2
+class Circle extends Shape {
+double radius;
+
+    Circle(double radius) {
+        this.radius = radius;
+        calculateArea();
+    }
+
+    void calculateArea() {
+        area = Math.PI * radius * radius;
+    }
+}
+
+// Main 클래스
+public class Main {
+public static void main(String[] args) {
+// 조상 클래스 참조변수를 이용한 배열 생성
+Shape[] shapes = new Shape[2];
+
+        // TO DO 1: 자손 클래스 인스턴스를 생성하고 배열에 저장하자. 
+        shapes[0] = new Rectangle(4, 5);    // index 0에 Rectangle 인스턴스 저장
+        shapes[1] = new Circle(3);          // index 1에 Circle 인스턴스 저장
+
+        // TO DO 2: 배열의 각 요소에 대해 printArea() 메소드 호출
+        for (Shape shape : shapes) {
+            shape.printArea();
+        }
+    }
+}
+    
+```
+
+</details>
+
+<br><br>
+
+
+
+
+## Practice 3 : Abstract Class
+
+<details>
+<summary>문제 설명</summary>
+
+### **[문제]** 
+
+### **[설명]**
+
+
+```java
+
+```
+
+
+<span style="color:red"> HINT : 공통된 부분만 빼내면 된다. </span>
+
+</details>
+
+<details>
+<summary>정답</summary>
+
+</details>
+
+
+<br><br>
+
+## Practice 4 : Interface 1
+
+<details>
+<summary>문제 설명</summary>
+
+### **[문제]**
+
+### **[설명]**
+
+
+```java
+
+```
+
+
+<span style="color:red"> HINT : 공통된 부분만 빼내면 된다. </span>
+
+</details>
+
+<details>
+<summary>정답</summary>
+
+</details>
+
+<br><br>
+
+## Practice 5 : Interface 2
+
+<details>
+<summary>문제 설명</summary>
+
+### **[문제]**
+
+### **[설명]**
+
+
+```java
+
+```
+
+
+<span style="color:red"> HINT : 공통된 부분만 빼내면 된다. </span>
+
+</details>
+
+<details>
+<summary>정답</summary>
+
+</details>
