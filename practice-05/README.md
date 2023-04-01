@@ -105,7 +105,7 @@ SportsCar의 멤버변수와 생성자를 작성해보자.
 <details>
 <summary>문제 설명</summary>
 
-### **[문제]** 상속도 하고! 포함도 하고! 다 했다 이말이야!
+### **[문제]** 상속도 하고! 포함도 하고!
 
 ### **[설명]**
 
@@ -148,28 +148,8 @@ TO DO를 채워봅시다.
 
 <br></br>
 
-## Practice 4 : 다형성 (오버라이딩)
 
-<details>
-<summary>문제 설명</summary>
-
-### **[문제]** 다형성 (오버라이딩)
-
-### **[설명]**
-
-우선 자바에서의 다형성 (Polymorphism)은 두 가지 의미를 갖는다.
-
-> 1. 한 타입의 참조 변수로 여러 타입의 객체를 참조할 수 있는 능력
-> 2. 하나의 객체나 메소드가 여러가지 다른 형태를 가질 수 있는 능력
-
-자바에서의 다형성에는 `오버로딩`, `오버라이딩`, `형변환`, `인터페이스`, `추상클래스` 등이 존재한다.
-이번 문제에서는 오버라이딩에 대해 다룰 예정이다.
-
-</details>
-
-<br></br>
-
-## Practice 5 : 상속 + 다형성 실습 1
+## Practice 4 : 상속 + 다형성 실습 1
 
 <details>
 <summary>문제 설명</summary>
@@ -202,7 +182,7 @@ TO DO를 채워봅시다.
 
 <br></br>
 
-## Practice 6 : 상속 + 다형성 실습 2
+## Practice 5 : 상속 + 다형성 실습 2
 
 <details>
 <summary>문제 설명</summary>
@@ -247,13 +227,13 @@ Beer 클래스를 상속받을 두 클래스를 만들어봅시다
   - Hoegaarden 클래스는 조상 클래스의 메서드와 더불어 1개의 추가적인 메서드를 갖는다.
   - Hoegaarden 클래스는 조상 클래스의 `drink()` 메서드를 오버라이딩한다.
   - `drink()` : 반환타입 void, 출력 예시 - `flavor`맛 `model`을 마십니다.
-  - `getFlavor()` : 반환타입 void, 출력 예시 - `model`의 맛 : `model`
+  - `getFlavor()` : 반환타입 void, 출력 예시 - `model`의 맛 : `flavor`
 
 </details>
 
 <br></br>
 
-## Practice 7 : 상속 + 다형성 실습 3
+## Practice 6 : 상속 + 다형성 실습 3
 
 <details>
 <summary>문제 설명</summary>
