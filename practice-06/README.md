@@ -106,7 +106,9 @@ Circle 클래스 (자손 클래스2): 원의 반지름을 가지며, 넓이를 �
 #### TODO 1
 
 Shape 클래스의 참조변수를 사용하여 Rectangle과 Circle 클래스의 인스턴스를 저장하는 배열을 만들어 보자. <br>
-**0번째 요소**에는 `Rectangle` 인스턴스를, **1번째 요소**에는 `Circle` 인스턴스를 저장한다. <br>
+**0번째 요소**에는 `Rectangle` 인스턴스를 `Width = 4`, `Height = 5`로, **1번째 요소**에는 `Circle` 인스턴스를 `radius = 3`으로 저장한다. <br>
+
+ 
 
 #### TODO 2
 
