@@ -714,8 +714,8 @@ public class BeerTest {
 
   | 인스턴스 타입 | 인스턴스 이름 | model      | price   | manufacturedAt | version       |
     | ------------- | ------------- | ---------- | ------- | -------------- | ------------- |
-  | Macbook       | m1            | "맥북에어" | 2400000 | 2023           | "애플 실리콘" |
-  | Macbook       | m2            | "맥북프로" | 1500000 | 2021           | "인텔 실리콘" |
+  | Macbook       | m1            | "맥북프로" | 2400000 | 2023           | "애플 실리콘" |
+  | Macbook       | m2            | "맥북에어" | 1500000 | 2021           | "인텔 실리콘" |
   | Gram          | g1            | "그램"     | 1100000 | 2022           |               |
 
 ```java
@@ -731,10 +731,10 @@ public class Practice08 {
     static void order( ? ) {
         if ( 그램인지 체크 ) {
             System.out.println("이게 아니야");
-        } elif ( 맥북인지 체크 ) {
+        } else if ( 맥북인지 체크 ) {
             if ( 인텔 실리콘인지 체크 ) {
                 System.out.println("이게 아니야");
-            } elif ( 애플 실리콘인지 체크 ) {
+            } else if ( 애플 실리콘인지 체크 ) {
                 System.out.println("이걸로 주세요");
             }
         }
@@ -856,14 +856,14 @@ public class Practice08 {
         } else if (p instanceof Macbook) {
             Macbook m = (Macbook) p;
 
-            if (m.version == "인텔 실리콘") {
+            if (m.version.equals("인텔 실리콘")) {
                 m.getModel();
                 m.getPrice();
                 m.getManufacture();
                 m.getVersion();
 
                 System.out.println("이게 아니야\n");
-            } else if (m.version == "애플 실리콘") {
+            } else if (m.version.equals("애플 실리콘")) {
                 m.getModel();
                 m.getPrice();
                 m.getManufacture();
