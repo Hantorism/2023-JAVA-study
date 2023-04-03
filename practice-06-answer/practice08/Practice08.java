@@ -84,14 +84,14 @@ public class Practice08 {
         } else if (p instanceof Macbook) {
             Macbook m = (Macbook) p;
 
-            if (m.version == "인텔 실리콘") {
+            if (m.version.equals("인텔 실리콘")) {
                 m.getModel();
                 m.getPrice();
                 m.getManufacture();
                 m.getVersion();
 
                 System.out.println("이게 아니야\n");
-            } else if (m.version == "애플 실리콘") {
+            } else if (m.version.equals("애플 실리콘")) {
                 m.getModel();
                 m.getPrice();
                 m.getManufacture();
