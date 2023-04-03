@@ -417,11 +417,11 @@ public class BeerTest {
 
 - **PC Interface**
 
-  getModel 메서드 : 반환타입 String, 접근제어자 public
+  getModel 메서드 : 반환타입 void, 접근제어자 public
 
-  getPrice 메서드 : 반환타입 Interger, 접근제어자 public
+  getPrice 메서드 : 반환타입 void, 접근제어자 public
 
-  getManufacture : 반환타입 Integer, 접근제어자 public
+  getManufacture : 반환타입 void, 접근제어자 public
 
 - **Macbook Class**
 
@@ -429,13 +429,29 @@ public class BeerTest {
 
   model(String), price(Integer), manufacturedAt(Integer), version(String)을 멤버변수로 갖는다
 
-  getVersion() : 반환타입 String, 접근제어자 public 이라는 메서드를 추가적으로 갖는다
+  getModel 메서드 : 출력 예시 - `모델 : 맥북`
+
+  getPrice 메서드 : 출력 예시 - `가격 : 2400000`
+
+  getManufacture 메서드 : 출력 예시 - `제조년월 : 2023`
+
+  getVersion() : 반환타입 String, 접근제어자 public, 출력 예시 - `버전 : 애플 실리콘`
+
+  생성자의 매개변수로 model(String), price(Integer), manufacturedAt(Integer), version(String)을 받는다
 
 - **Gram Class**
 
   PC Interface를 구현하는 클래스
 
   model(String), price(Integer), manufacturedAt(Integer)을 멤버변수로 갖는다
+
+  getModel 메서드 : 출력 예시 - `모델 : 그램`
+
+  getPrice 메서드 : 출력 예시 - `가격 : 1100000`
+
+  getManufacture 메서드 : 출력 예시 - `제조년월 : 2022`
+
+  생성자의 매개변수로 model(String), price(Integer), manufacturedAt(Integer)을 받는다
 
   | 인스턴스 타입 | 인스턴스 이름 | model      | price   | manufacturedAt | version       |
   | ------------- | ------------- | ---------- | ------- | -------------- | ------------- |
@@ -468,5 +484,26 @@ public class Practice08 {
 ```
 
 <span style="color:red"> HINT : 공통된 부분만 빼내면 된다. </span>
+
+#### 출력결과
+
+```java
+모델 : 맥북프로
+가격 : 2400000
+제조년월 : 2023
+버전 : 애플 실리콘
+이걸로 주세요
+
+모델 : 맥북에어
+가격 : 1500000
+제조년월 : 2021
+버전 : 인텔 실리콘
+이게 아니야
+
+모델 : 그램
+가격 : 1100000
+제조년월 : 2022
+이게 아니야
+```
 
 </details>
