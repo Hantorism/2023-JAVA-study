@@ -109,69 +109,7 @@ Shape 클래스의 참조변수를 사용하여 Rectangle과 Circle 클래스의
 
 </details>
 
-<details>
-<summary>정답</summary>
 
-```java
-// 조상 클래스
-class Shape {
-   double area;
-
-   void printArea() {
-      System.out.println("Area: " + area);
-   }
-}
-
-// 자손 클래스 1
-class Rectangle extends Shape {
-   double width;
-   double height;
-
-   Rectangle(double width, double height) {
-      this.width = width;
-      this.height = height;
-      calculateArea();
-   }
-
-   void calculateArea() {
-      area = width * height;
-   }
-}
-
-// 자손 클래스 2
-class Circle extends Shape {
-   double radius;
-
-   Circle(double radius) {
-      this.radius = radius;
-      calculateArea();
-   }
-
-   void calculateArea() {
-      area = Math.PI * radius * radius;
-   }
-}
-
-// Main 클래스
-public class Practice02 {
-   public static void main(String[] args) {
-// 조상 클래스 참조변수를 이용한 배열 생성
-      Shape[] shapes = new Shape[2];
-
-      // TO DO 1: 자손 클래스 인스턴스를 생성하고 배열에 저장하자. 
-      shapes[0] = new Rectangle(4, 5);    // index 0에 Rectangle 인스턴스 저장
-      shapes[1] = new Circle(3);          // index 1에 Circle 인스턴스 저장
-
-      // TO DO 2: 배열의 각 요소에 대해 printArea() 메소드 호출
-      for (Shape shape : shapes) {
-         shape.printArea();
-      }
-   }
-}
-
-```
-
-</details>
 <br><br>
 
 ## Practice 3 : Overriding(오버라이딩) 이론
@@ -225,7 +163,6 @@ UpperClass test : LowerClass <br>
 </details>
 <br><br>
 
-
 ## Practice 4 : Overriding(오버라이딩) 문제
 
 <details>
@@ -256,57 +193,7 @@ This is a car. <br>
 
 </details>
 
-<details>
-<summary>정답</summary>
 
-```java
-// Superclass
-package practice04;
-
-class Vehicle {
-    void display() {
-        System.out.println("This is a vehicle.");
-    }
-}
-
-// Subclass 1
-class Car extends Vehicle {
-      @Override
-      void display() {
-        System.out.println("This is a car.");
-   }
-}
-
-// Subclass 2
-class Bike extends Vehicle {
-      @Override
-      void display() {
-          System.out.println("This is a bike.");
-      }
-}
-
-// Main class
-public class Practice04 {
-   public static void main(String[] args) {
-         // Create an array of Vehicle type (superclass)
-         Vehicle[] vehicles = new Vehicle[3];
-
-        // TO DO 1: Store instances to vehicles array, 0 : Vehicle, 1 : Car, 2 : Bike.
-        vehicles[0] = new Vehicle();
-        vehicles[1] = new Bike();
-        vehicles[2] = new Car();
-
-        // TO DO 2: Call the display() method on each element in the array.
-        for (Vehicle vehicle : vehicles) {
-           vehicle.display();
-        }
-   }
-}
-
-```
-
-
-</details>
 
 
 <br><br>
@@ -314,7 +201,7 @@ public class Practice04 {
 ## Practice 5 : Abstract Class 이론
 
 <details>
-<summary>문제 설명</summary>
+<summary>이론 설명</summary>
 
 ### **[이론]**
 
@@ -398,76 +285,15 @@ Car 클래스와 Bicycle 클래스는 추상 메소드 start()와 stop()을 구�
    @Override 어노테이션을 사용하면 오버라이딩을 하고 있다는 것을 명시적으로 표현할 수 있다. <br>
    추가로 구현하는 추상 메서드에 대해 매개변수, 리턴 타입, 접근 제한자 등을 완전히 동일하게 구현해야 한다. <br>
 
+#### 출력결과
+    Car starts.
+    Car stops.
+    Bicycle starts.
+    Bicycle stops.
+    This is a vehicle.
+    This is a vehicle.
 </details>
 
-<details>
-<summary>정답</summary>
-
-```java
-// 추상 클래스
-abstract class Vehicle {
-    abstract void start(); // 추상 메소드
-    abstract void stop(); // 추상 메소드
-
-    void displayInfo() { // 일반 메소드
-        System.out.println("This is a vehicle.");
-    }
-}
-
-// 구체 클래스 1
-class Car extends Vehicle {
-    // 여기 참고해서 구현해보세요!
-    @Override
-    void start() {
-        System.out.println("Car starts.");
-    }
-
-    // TO DO : 추상 메서드인 stop() 메소드 구현
-    // 기능 : "Car stops." 출력
-    @Override
-    void stop() {
-        System.out.println("Car stops.");
-    }
-   //
-}
-
-// 구체 클래스 2
-class Bicycle extends Vehicle {
-    // TO DO : 추상 메서드인 start() 메소드, stop() 메소드 구현
-    // 기능 : "Bicycle starts." 출력, "Bicycle stops." 출력
-    @Override
-    void start() {
-        System.out.println("Bicycle starts.");
-    }
-
-    @Override
-    void stop() {
-        System.out.println("Bicycle stops.");
-    }
-    //
-}
-
-// Main 클래스
-public class Main {
-    public static void main(String[] args) {
-        // 객체 생성
-        Car car = new Car();
-        Bicycle bicycle = new Bicycle();
-
-        // 구체 클래스에서 구현된 메소드 호출
-        car.start(); // 출력: Car starts.
-        car.stop(); // 출력: Car stops.
-        bicycle.start(); // 출력: Bicycle starts.
-        bicycle.stop(); // 출력: Bicycle stops.
-
-        // 추상 클래스
-        car.displayInfo(); // 출력: This is a vehicle.
-        bicycle.displayInfo(); // 출력: This is a vehicle.
-    }
-}
-```
-
-</details>
 
 <br><br>
 
