@@ -81,7 +81,6 @@
            arr[2].c = 300; // not error
        }
     }
-    
     ```
 
 </details>
@@ -149,10 +148,10 @@ public class test {
     }
 }
 ```
-출력 결과 : <br>
-UpperClass upper : UpperClass <br>
-LowerClass lower : LowerClass <br>
-UpperClass test : LowerClass <br>
+#### 출력 결과
+    UpperClass upper : UpperClass
+    LowerClass lower : LowerClass
+    UpperClass test : LowerClass
 
 조상 클래스의 참조변수는 조상 클래스의 인스턴스를 참조할 수 있고,(출력결과 첫번째 줄)<br>
 자손 클래스의 참조변수는 자손 클래스의 인스턴스를 참조할 수 있다.(출력결과 두번째 줄)<br>
