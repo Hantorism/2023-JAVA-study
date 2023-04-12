@@ -668,7 +668,6 @@ public class BeerTest {
         }
     }
 }
-}
 ```
 
 </details>
