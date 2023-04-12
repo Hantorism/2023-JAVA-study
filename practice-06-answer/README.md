@@ -578,49 +578,66 @@ public class BeerTest {
 ### **[코드]**
 
 ```java
-class Beer {
+package practice07;
+
+interface Beer {
+    void drink();
+
+    void getType();
+
+    void getABV();
+}
+
+class Cass implements Beer {
     String type;
     String model;
     int ABV;
 
-    Beer(String type, String model, int ABV) {
+    Cass(String type, String model, int ABV) {
         this.type = type;
         this.model = model;
         this.ABV = ABV;
     }
 
-    void drink() {
-        System.out.println(model + "을(를) 마십니다");
+    public void drink() {
+        System.out.println(model + "을 마십니다");
     }
 
-    void getType() {
+    public void getType() {
         System.out.println(model + "의 타입 : " + type);
     }
 
-    void getABV() {
+    public void getABV() {
         System.out.println(model + "의 도수 : " + ABV);
     }
 }
 
-class Cass extends Beer {
-    Cass(String type, String model, int ABV) {
-        super(type, model, ABV);
-    }
-}
-
-class Hoegaarden extends Beer {
+class Hoegaarden implements Beer {
+    String type;
+    String model;
     String flavor;
+    int ABV;
 
     Hoegaarden(String type, String model, int ABV, String flavor) {
-        super(type, model, ABV);
+        this.type = type;
+        this.model = model;
+        this.ABV = ABV;
         this.flavor = flavor;
     }
 
-    void drink() {
+    public void drink() {
         System.out.println(flavor + "맛 " + model + "을(를) 마십니다\n");
     }
 
-    void getFlavor() {
+    public void getType() {
+        System.out.println(model + "의 타입 : " + type);
+    }
+
+    public void getABV() {
+        System.out.println(model + "의 도수 : " + ABV);
+    }
+
+    public void getFlavor() {
         System.out.println(model + "의 맛 : " + flavor);
     }
 }
@@ -650,6 +667,7 @@ public class BeerTest {
             c.drink();
         }
     }
+}
 }
 ```
 
