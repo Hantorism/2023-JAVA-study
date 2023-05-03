@@ -99,9 +99,8 @@
 
   - TestPeople 클래스에서 Person 배열을 만들어 Student, Teacher 객체를 할당한다. 멤버 변수는 자유롭게 하자.
   - for-each 문을 이용하여 배열 내의 Person 객체들의 eat() 메소드를 호출하고, instanceof 연산자를 이용하여 Student, Teacher 객체를 구분하여 각각이 가진 메소드인 study(), teach()를 호출 할 수 있도록 하자.
-
-![image](https://user-images.githubusercontent.com/107465938/235878230-cacbb1ad-1470-458c-be49-244c40a0cb60.png)
-
+   
+![image](https://user-images.githubusercontent.com/107465938/235878405-c2feccf1-8325-432a-a7df-671d7e2bdb59.png)
 
 ## Practice 6 : Interface 다형성 문제
 
@@ -140,7 +139,7 @@
       | public | void  | Driving() | “{model} 운전 중” 출력 |
       | public | void | execute() | StartCar(), Driving() 실행 |
 
-![image](https://user-images.githubusercontent.com/107465938/235878405-c2feccf1-8325-432a-a7df-671d7e2bdb59.png)
+![image](https://user-images.githubusercontent.com/107465938/235878230-cacbb1ad-1470-458c-be49-244c40a0cb60.png)
 
 ## Practice 8 : Inner Class 문제
 
