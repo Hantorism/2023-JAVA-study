@@ -48,6 +48,7 @@
     | public | - | void | eating | “쩝쩝” 소리를 내면서 밥을 먹어, 배고픈 정도 -2 만큼 변화시키는 메소드 |
     | public | - | void | crying | “멍멍” 울음 소리를 내면서 울고 나서, 배고픈 정도를 +1 만큼 변화시키는 메소드 |
 
+![image](https://user-images.githubusercontent.com/107465938/235878143-3d9507fe-4666-4254-87b3-81735331b9d5.png)
 
 ## Practice 4 : 다형성 이론 및 문제
 
@@ -99,6 +100,9 @@
   - TestPeople 클래스에서 Person 배열을 만들어 Student, Teacher 객체를 할당한다. 멤버 변수는 자유롭게 하자.
   - for-each 문을 이용하여 배열 내의 Person 객체들의 eat() 메소드를 호출하고, instanceof 연산자를 이용하여 Student, Teacher 객체를 구분하여 각각이 가진 메소드인 study(), teach()를 호출 할 수 있도록 하자.
 
+![image](https://user-images.githubusercontent.com/107465938/235878230-cacbb1ad-1470-458c-be49-244c40a0cb60.png)
+
+
 ## Practice 6 : Interface 다형성 문제
 
 - 문제 설명
@@ -135,6 +139,8 @@
       | public  | void | StartCar() | “시동 켜기” 출력 |
       | public | void  | Driving() | “{model} 운전 중” 출력 |
       | public | void | execute() | StartCar(), Driving() 실행 |
+
+![image](https://user-images.githubusercontent.com/107465938/235878405-c2feccf1-8325-432a-a7df-671d7e2bdb59.png)
 
 ## Practice 8 : Inner Class 문제
 
@@ -187,3 +193,6 @@
   TODO : start() 메소드안으로 TimePrinter 클래스를 옮겨서, Local 클래스 타입으로 inner 클래스를 변경해보자.
 
   !! 참고 : Local inner 클래스는 메소드나 초기화 블록 내에서 선언되며, 해당 블록 내에서만 사용할 수 있기 때문에 접근 제어자를 가질 수 없다. !!
+  
+  ![image](https://user-images.githubusercontent.com/107465938/235878449-e665f141-282c-4f04-8854-dc08bf023ee2.png)
+
