@@ -1,0 +1,66 @@
+람다식으로 변경하기
+
+___________________________
+Before
+int max(int a, int b) {
+    return a > b ? a : b;
+}
+
+After
+(int a, int b) -> a > b ? a : b
+___________________________
+
+___________________________
+Before
+int printVar(String name, int i){
+    System.out.println(name + "=" + i);
+}
+
+
+___________________________
+
+___________________________
+Before
+int square(int x){
+    return x * x;
+}
+
+After
+
+___________________________
+
+___________________________
+Before
+int roll(){
+    return (int)(Math.random() * 6);
+}
+
+After
+
+___________________________
+
+___________________________
+Before
+int sumArr(int [] arr){
+    int sum = 0;
+    for(int i : arr)
+        sum += i;
+    return sum;
+}
+
+After
+
+___________________________
+
+___________________________
+Before
+int [] emptyArr() {
+    return new int[]{};
+}
+
+After
+
+() -> { return new int[]; }
+
+___________________________
+
