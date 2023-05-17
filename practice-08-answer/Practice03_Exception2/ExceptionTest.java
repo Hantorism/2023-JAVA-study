@@ -13,6 +13,7 @@ public class ExceptionTest {
 
 
         // TO DO : 코드의 문제점을 파악하고, 수정하세요
+        // Exception과 IndexOutOfBoundsException의 위치 변경
         try{
             Arr[4] = new Test("e");
             System.out.println("여기 문장은 출력될리가 없겠죠?");
