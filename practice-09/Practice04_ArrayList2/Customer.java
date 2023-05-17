@@ -29,6 +29,6 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "고객 [이름=" + name + ", 나이=" + age + ", 자금=" + money + "]";
+        return "고객 [이름=" + name + ", 나이=" + age + ", 자금=" + money + "]";
     }
 }
