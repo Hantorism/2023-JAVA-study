@@ -16,7 +16,7 @@ public class Frame_Method2 {
         Toolkit kit = Toolkit.getDefaultToolkit();
         Dimension screenSize = kit.getScreenSize();
         myframe.setSize(screenSize.width/2, screenSize.height/2);
-        myframe.setLocation(screenSize.width/4, screenSize.height/4);
+        myframe.setLocationRelativeTo(null);
         myframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         myframe.setResizable(false);
 

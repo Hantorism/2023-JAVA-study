@@ -7,7 +7,7 @@ import java.awt.Toolkit;
 public class Frame_Method{
 
     public static void main(String[] args) {
-				// -- Chapter 1. Frame 전체에 대한 설정하기 -- 
+		// -- Chapter 1. Frame 전체에 대한 설정하기 -- 
         // 1. "test"라는 이름의 프레임 생성 (프레임이란 사용자가 보는 창)
         JFrame myframe = new JFrame("test");
 
@@ -25,6 +25,8 @@ public class Frame_Method{
         myframe.setSize(420,420); 
         // 3.1.2 프레임의 위치를 특정 좌표로 설정
         myframe.setLocation(100, 100);
+        // 3.1.3 프레임의 위치를 화면 정 가운데로 설정
+        myframe.setLocationRelativeTo(null);
 
         // 3.2 프레임의 크기 및 위치를 본인의 모니터 크기에 맞게 자동으로 설정
         // 3.2.1 프레임의 크기를 본인의 모니터 크기에 맞게 자동으로 설정

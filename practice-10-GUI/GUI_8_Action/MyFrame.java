@@ -15,7 +15,7 @@ public class MyFrame extends JFrame{
     public MyFrame(){
         this.setTitle("GUI_8");
         this.setSize(screenWidth/4, screenHeight/2);
-        this.setLocation(screenWidth/4, screenHeight/4);
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new GridLayout(1,2));
