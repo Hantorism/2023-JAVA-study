@@ -2,15 +2,13 @@ package GUI_8_Action5;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
+
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
@@ -25,8 +23,7 @@ public class MyFrame extends JFrame{
     public MyFrame(){
         this.setTitle("GUI_8");
         this.setSize(screenWidth/4, screenHeight/2);
-        System.out.println("sceenWidth/4 : " + screenWidth/4 + " screenHeight/4 : " + screenHeight/4);
-        this.setLocation(screenWidth/4, screenHeight/4);
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
